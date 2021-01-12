@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './Section_Nav/NavBar';
+import HikesLog from './Section_Main/HikesLog';
 
 class App extends Component {
 
@@ -20,9 +21,10 @@ class App extends Component {
   renderMainBodyRoutes() {
 
     return (
-      <div>
-        Main Body
-      </div>
+      <Route 
+        path='/'
+        component={HikesLog}
+      />
     )
 
   }

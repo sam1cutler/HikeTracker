@@ -1,0 +1,10 @@
+.hike-card {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.hike-card-buttons {
+    margin-bottom: 10px;
+}
