@@ -12,3 +12,17 @@
 footer {
   text-align: center;
 }
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited { color: black}
+a:hover { text-shadow: 0 0 5px grey;}
+
+a {
+  margin: 0px;
+}
+
+

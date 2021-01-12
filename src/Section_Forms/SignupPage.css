@@ -1,0 +1,9 @@
+.signup-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form-section {
+    margin: 5px;
+}

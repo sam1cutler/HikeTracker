@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './UserLinks.css';
 
 class UserLinks extends Component {
@@ -9,18 +9,30 @@ class UserLinks extends Component {
 
         return (
             <div className='links-wrapper'>
-                <div className='individual-link'>
-                    Logs
-                </div>
-                <div className='individual-link'>
+                <Link 
+                    to='/user/1234/hikes'
+                    className='individual-link'
+                >
+                    Hikes
+                </Link>
+                <Link 
+                    to='/user/1234/new-hike'
+                    className='individual-link'
+                >
                     New
-                </div>
-                <div className='individual-link'>
+                </Link>
+                <Link 
+                    to='/user/1234/summary'
+                    className='individual-link'
+                >
                     Summary
-                </div>
-                <div className='individual-link'>
+                </Link>
+                <Link 
+                    to='/user/1234/analysis'
+                    className='individual-link'
+                >
                     Analysis
-                </div>
+                </Link>
             </div>
         )
 
