@@ -6,7 +6,7 @@ class HikeCard extends Component {
 
     render() {
 
-        const { id, name, date, distance, duration, elevation } = this.props.cardInfo;
+        const { id, name, date, distance, time, elevation } = this.props.cardInfo;
 
         return (
             <div className='hike-card'>
@@ -14,9 +14,9 @@ class HikeCard extends Component {
                     <h3>{name}</h3>
                 </Link>
                 <p>{date}</p>
-                <p>{distance}</p>
-                <p>{duration}</p>
-                <p>{elevation}</p>
+                <p>{distance} miles</p>
+                <p>{time} hours</p>
+                <p>{elevation} feet</p>
                 <div className='hike-card-buttons'>
                     <button>Edit</button>
                     {' '}

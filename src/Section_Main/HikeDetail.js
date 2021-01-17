@@ -17,16 +17,16 @@ class HikeDetail extends Component {
         const currentHike = this.state.hikes.find(hike => 
             hike.id === this.props.match.params.hikeId);
         
-        const { name, date, distance, duration, elevation, weather, notes, reference } = currentHike;
+        const { name, date, distance, time, elevation, weather, notes, reference, social_reference, steps } = currentHike;
 
         return (
             <div className='hike-detail-wrapper'>
                 <h2>{name}</h2>
                 <section className='hike-details-section'>
                     <p>{date}</p>
-                    <p>{distance}</p>
-                    <p>{duration}</p>
-                    <p>{elevation}</p>
+                    <p>{distance} miles</p>
+                    <p>{time} hours</p>
+                    <p>{elevation} feet</p>
                 </section>
                 <section className='hike-details-section'>
                     <p>Weather: {weather}</p>
