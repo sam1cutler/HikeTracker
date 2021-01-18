@@ -6,3 +6,8 @@
     padding: 2%;
     border: 1px solid black;
 }
+
+.nav-bar-wrapper a:hover {
+    text-shadow: 0 0 5px grey;
+    box-shadow: none;
+}

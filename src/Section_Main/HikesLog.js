@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import './HikesLog.css';
-import HikesApiService from '../services/hikes-service';
 //import STORE from '../store';
 import HikeCard from './HikeCard';
+import HikesContext from '../HikesContext';
 
 class HikesLog extends Component {
 
+    /*
     constructor(props) {
         super(props);
         this.state = {
           hikesList: []
         };
     }
-
-    componentDidMount() {
-        console.log('First, the starting state:')
-        console.log(this.state.hikesList)
-        HikesApiService.getHikes()
-            .then( hikesResult => {
-                console.log(hikesResult)
-                this.setState({
-                    hikesList: hikesResult
-                })
-                console.log('And now, the updated state from API query:')
-                console.log(this.state.hikesList)
-            })
-    }
+    */
+    static contextType = HikesContext;
+    
 
     render() {
 
-        const hikesInfo = this.state.hikesList;
+        const hikesList = this.context.hikes;
+        // console.log('Here is the hikesList in HikesLog.js, populated from context:')
+        // console.log(hikesList)
 
-        const cardList = hikesInfo.map( (activeHike, i) => {
+        const cardList = hikesList.map( (activeHike, i) => {
+            // console.log('In cardList loop in HikesLog.js, and active hike is:')
+            // console.log(activeHike)
             return (
                 <HikeCard
                     key={i}
@@ -42,7 +36,7 @@ class HikesLog extends Component {
         })
 
         return (
-            <div>
+            <div className='the-log'>
                 <h2>Your hikes:</h2>
                 {cardList}
             </div>

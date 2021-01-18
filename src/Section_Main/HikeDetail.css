@@ -4,16 +4,52 @@
     align-items: center;
 }
 
+a:hover {
+    text-shadow: none;
+    box-shadow: 0 0 5px grey;
+}
+
 .hike-details-section {
     margin: 10px;
     padding: 10px 30px;
     border: 1px solid black;
 }
 
-h2 {
-    margin: 10px 0px;
+.hike-details-section a:hover {
+    box-shadow: none;
+    text-shadow: 0 0 5px grey;
 }
 
-.hike-card-buttons {
+.hike-detail-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.hike-detail-buttons a, .delete-hike-button {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    width: 50px;
     text-align: center;
+}
+
+.hike-card-buttons a:hover { 
+    text-shadow: none;
+    box-shadow: 0 0 5px grey;
+}
+
+.delete-hike-button:hover {
+    box-shadow: 0 0 5px grey;
+    cursor: pointer;
+}
+
+.return-link p {
+    margin: 10px;
+    font-style: italic;
+}
+
+.return-link a:hover {
+    text-shadow: 0 0 5px grey;
+    box-shadow: none;
 }
