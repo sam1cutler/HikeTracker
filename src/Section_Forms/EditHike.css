@@ -1,0 +1,42 @@
+.hike-form-supersection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 2;
+}
+
+.buttons-box {
+    text-align: center;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.submit-button {
+    border: 1px solid black;
+    padding: 5px 15px;
+    margin: 15px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.submit-button:hover {
+    box-shadow: 0 0 5px grey;
+    cursor: pointer;
+}
+
+.return-link p {
+    margin: 0px;
+    font-style: italic;
+}
+
+.return-link:hover {
+    text-shadow: 0 0 5px grey;
+    box-shadow: none;
+}

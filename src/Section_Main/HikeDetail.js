@@ -1,45 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HikeDetail.css';
-import STORE from '../store';
+// import STORE from '../store';
+import HikeCard from './HikeCard';
+import HikesContext from '../HikesContext';
+// import PropTypes from 'prop-types';
 
 class HikeDetail extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          hikes: STORE.hikes
-        };
+    static contextType = HikesContext;
+
+    handleDeleteHike = (event) => {
+        event.preventDefault();
+        console.log('User wants to delete a hike.')
     }
 
     render() {
 
-        const currentHike = this.state.hikes.find(hike => 
-            hike.id === this.props.match.params.hikeId);
+        const activeHike = this.context.hikes.find(hike => 
+            hike.id.toString() === this.props.match.params.hikeId);
         
-        const { name, date, distance, time, elevation, weather, notes, reference, social_reference, steps } = currentHike;
+        const { weather, notes, reference, social_reference } = activeHike || '';
 
         return (
             <div className='hike-detail-wrapper'>
-                <h2>{name}</h2>
-                <section className='hike-details-section'>
-                    <p>{date}</p>
-                    <p>{distance} miles</p>
-                    <p>{time} hours</p>
-                    <p>{elevation} feet</p>
-                </section>
+                <HikeCard
+                    cardInfo={activeHike}
+                />
                 <section className='hike-details-section'>
                     <p>Weather: {weather}</p>
                     <p>Notes: {notes}</p>
                     <p>Reference: <a href={reference} target='_blank' rel="noreferrer">{reference}</a></p>
+                    <p>Social media link: {social_reference}</p>
                 </section>
-                <section className='hike-card-buttons'>
-                    <button>Edit</button>{' '}
-                    <button>Delete</button>
+                <section className='hike-detail-buttons'>
+                    <Link
+                        to={`/user/${this.props.match.params.userId}/hikes/${this.props.match.params.hikeId}/edit`}
+                    >
+                        Edit
+                    </Link>
+                    <div
+                        className='delete-hike-button'
+                        onClick={this.handleDeleteHike}
+                    >
+                        Delete
+                    </div>
                 </section>
-                <section>
+                <section className='return-link'>
                     <Link to='/user/1234/hikes'>
-                        <i>Return to Hikes Log</i>
+                        <p>Return to Hikes Log</p>
                     </Link>
                 </section>
             </div>

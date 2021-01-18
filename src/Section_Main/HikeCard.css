@@ -1,8 +1,30 @@
 .hike-card {
-    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
     padding: 5px;
     border: 1px solid black;
     text-align: center;
+}
+
+.hike-card a:hover { 
+    text-shadow: none;
+    box-shadow: 0 0 5px grey;
+}
+
+.card-title {
+    text-align: left;
+    width: 200px;
+    padding-left: 10px;
+}
+
+.card-element {
+    border: 1px solid grey;
+    margin: 10px;
+    padding: 5px;
 }
 
 .hike-card-buttons {
