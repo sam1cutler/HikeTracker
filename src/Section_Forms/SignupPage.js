@@ -9,13 +9,14 @@ class SignupPage extends Component {
             <div className='signup-form-wrapper'>
                 <form id='signup-form'>
                     <div className='signup-form-wrapper'>
+                        <h2>Sign up for HikeTracker:</h2>
                         <section className='signup-form-section'>
-                            <label htmlFor='user-email'>Email:</label>{' '}
-                            <input type="email" name='username' required />
+                            <label htmlFor='email'>Email:</label>{' '}
+                            <input type="email" name='email' required />
                         </section>
                         <section className='signup-form-section'>
-                            <label htmlFor='user-password1'>Password:</label>{' '}
-                            <input type="password" name='user-password1' required />
+                            <label htmlFor='password'>Password:</label>{' '}
+                            <input type="password" name='password' required />
                         </section>
                         <section className='signup-form-section'>
                             <button type='submit'>Sign up</button>

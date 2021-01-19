@@ -16,6 +16,13 @@ class WelcomeLinks extends Component {
                     Sign Up
                 </Link>
 
+                <Link
+                    to='/login'
+                    className='individual-link'
+                >
+                    Log In
+                </Link>
+
                 <Link 
                     to='/user/1234/hikes'
                     className='individual-link'

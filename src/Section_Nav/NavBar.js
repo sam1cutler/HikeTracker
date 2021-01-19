@@ -11,7 +11,7 @@ class NavBar extends Component {
         return (
             
             <>
-                {['/','/signup','/sample'].map(path => (
+                {['/','/signup','/sample','/login'].map(path => (
                     <Route
                         exact
                         key={path}

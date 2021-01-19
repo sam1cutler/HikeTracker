@@ -17,7 +17,7 @@ class EditHike extends Component {
         const activeHike = this.context.hikes.find(hike => 
             hike.id.toString() === this.props.match.params.hikeId);
         
-        const { name, distance, time, elevation, weather, notes, reference, social_reference } = activeHike || '';
+        const { name, distance, time, elevation, weather, notes, reference, steps } = activeHike || '';
 
         return (
             <div>
@@ -63,11 +63,11 @@ class EditHike extends Component {
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='hike-reference'>Reference:</label>{' '}
-                            <input type='text' name='hike-reference' size={50} placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
+                            <input type='text' name='hike-reference' size={50} defaultValue={reference} />
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='hike-steps'>Total steps taken:</label>{' '}
-                            <input type="number" name='hike-steps' placeholder={20000} />
+                            <input type="number" name='hike-steps' defaultValue={steps} />
                         </section>
                         <div
                             className='submit-button'

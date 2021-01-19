@@ -6,6 +6,7 @@ import HikesApiService from './services/hikes-api-service';
 import NavBar from './Section_Nav/NavBar';
 import LandingPage from './Section_Main/LandingPage';
 import SignupPage from './Section_Forms/SignupPage';
+import LoginForm from './Section_Forms/LoginForm';
 import HikesLog from './Section_Main/HikesLog';
 import HikeDetail from './Section_Main/HikeDetail';
 import NewHike from './Section_Forms/NewHike';
@@ -59,6 +60,11 @@ class App extends Component {
           exact
           path='/signup'
           component={SignupPage}
+        />
+        <Route
+          exact
+          path='/login'
+          component={LoginForm}
         />
         <Route 
           exact

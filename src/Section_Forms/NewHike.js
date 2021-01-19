@@ -38,6 +38,10 @@ class NewHike extends Component {
                             <input type="number" name='hike-elevation' placeholder={2000} />
                         </section>
                         <section className='hike-form-section'>
+                            <label htmlFor='hike-steps'>Total steps taken:</label>{' '}
+                            <input type="number" name='hike-steps' placeholder={20000} />
+                        </section>
+                        <section className='hike-form-section'>
                             <label htmlFor='hike-weather'>Weather:</label>{' '}
                             <select name='hike-weather' id='hike-weather'>
                             <option value='sun'>Sun</option>
@@ -54,10 +58,6 @@ class NewHike extends Component {
                         <section className='hike-form-section'>
                             <label htmlFor='hike-reference'>Reference:</label>{' '}
                             <input type='text' name='hike-reference' size={50} placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
-                        </section>
-                        <section className='hike-form-section'>
-                            <label htmlFor='hike-steps'>Total steps taken:</label>{' '}
-                            <input type="number" name='hike-steps' placeholder={20000} />
                         </section>
                     </section>
 
