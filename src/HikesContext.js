@@ -2,10 +2,12 @@ import React from 'react';
 
 const HikesContext = React.createContext({
     hikes: [],
+    activeHike: {},
     error: null,
     loggedInUser: '',
     setHikes: () => {},
-    setUser: () => {},
+    setActiveHike: () => {},
+    //setUser: () => {},
     //editHike: () => {},
     //addHike: () => {},
     deleteHike: () => {},

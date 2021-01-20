@@ -8,11 +8,24 @@ const HikesApiService = {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
-        .then(res => 
-            (!res.ok)
-            ? res.json().then(e => Promise.reject(e))
-            : res.json()
-        )
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getHikeById(hikeId) {
+        console.log('Submiting fetch request for this hike info.')
+        return fetch(`${config.API_ENDPOINT}/hikes/${hikeId}`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+                )
     },
     logNewHike(newHike) {
         console.log('In HikesApiService, about to post a new hike.')

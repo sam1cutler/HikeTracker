@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+//import { format } from 'date-fns';
 import './HikeDetail.css';
 import HikeCard from './HikeCard';
 import HikesContext from '../HikesContext';
+import HikesApiService from '../services/hikes-api-service';
 // import PropTypes from 'prop-types';
 
 class HikeDetail extends Component {
@@ -14,14 +16,21 @@ class HikeDetail extends Component {
         console.log('User wants to delete a hike.')
     }
 
-    render() {
+    componentDidMount() {
+        HikesApiService.getHikeById(this.props.match.params.hikeId)
+            .then( hikeInfo => {
+                console.log(hikeInfo)
+                this.context.setActiveHike(hikeInfo)
+            })
+    }
 
-        const activeHike = this.context.hikes.find(hike => 
-            hike.id.toString() === this.props.match.params.hikeId);
+    render() {
+        
+        const activeHike = this.context.activeHike;
         
         const { weather, notes, reference, social_reference } = activeHike || '';
 
-        //const currentUser = this.context.loggedInUser;
+        // const currentUser = this.context.loggedInUser;
 
         return (
             <div className='hike-detail-wrapper'>

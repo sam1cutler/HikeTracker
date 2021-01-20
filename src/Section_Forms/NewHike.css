@@ -8,4 +8,9 @@
 
 .buttons-box {
     text-align: center;
+    padding: 5px;
+}
+
+.return-link {
+    margin-top: 15px;
 }

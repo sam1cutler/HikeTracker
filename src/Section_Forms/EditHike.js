@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './EditHike.css';
 import HikesContext from '../HikesContext';
+import HikesApiService from '../services/hikes-api-service';
 
 class EditHike extends Component {
 
@@ -12,10 +13,17 @@ class EditHike extends Component {
         console.log('User wants to edit a hike.')
     }
 
+    componentDidMount() {
+        HikesApiService.getHikeById(this.props.match.params.hikeId)
+            .then( hikeInfo => {
+                console.log(hikeInfo)
+                this.context.setActiveHike(hikeInfo)
+            })
+    }
+
     render() {
 
-        const activeHike = this.context.hikes.find(hike => 
-            hike.id.toString() === this.props.match.params.hikeId);
+        const activeHike = this.context.activeHike;
         
         const { name, distance, time, elevation, weather, notes, reference, steps } = activeHike || '';
 
@@ -69,13 +77,22 @@ class EditHike extends Component {
                             <label htmlFor='hike-steps'>Total steps taken:</label>{' '}
                             <input type="number" name='hike-steps' defaultValue={steps} />
                         </section>
+                        <div>
                         <div
-                            className='submit-button'
-                            onClick={this.handleEditHike}
-                        >
-                            Submit updated hike info
+                                className='submit-button'
+                                onClick={this.handleEditHike}
+                            >
+                                Submit updated hike info
+                            </div>
+                            <Link
+                                to={`/hikes/${this.props.match.params.hikeId}/detail`}
+                            >
+                                <div className='cancel-button'>
+                                    Cancel edit
+                                </div>
+                            </Link>
                         </div>
-                        <Link to='/user/1234/hikes' className='return-link'>
+                        <Link to='/hikes' className='return-link'>
                             <p>Return to Hikes Log</p>
                         </Link>
                     </section>  

@@ -18,6 +18,7 @@ class App extends Component {
 
   state = {
     hikes: [],
+    activeHike: { date: '2019-01-03T00:00:00.000Z' },
     loggedInUser: '',
     error: null,
   }
@@ -28,6 +29,10 @@ class App extends Component {
     this.setState({
       hikes: hikesList
     })
+  }
+
+  setActiveHike = (activeHike) => {
+    this.setState( {activeHike} )
   }
 
   setLoggedInUser = (userId) => {
@@ -107,9 +112,11 @@ class App extends Component {
 
     const value = {
       hikes: this.state.hikes,
+      activeHike: this.state.activeHike,
       error: this.state.error,
       loggedInUser: this.state.loggedInUser,
       setHikes: this.setHikesList,
+      setActiveHike: this.setActiveHike,
       deleteHike: this.handleDeleteHike,
       setUser: this.setLoggedInUser,
     }

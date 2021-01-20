@@ -31,6 +31,20 @@
     cursor: pointer;
 }
 
+.cancel-button {
+    border: 1px solid black;
+    padding: 5px 15px;
+    margin: 15px 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline;
+}
+
+.cancel-button:hover {
+    box-shadow: 0 0 5px grey;
+    cursor: pointer;
+}
+
 .return-link p {
     margin: 0px;
     font-style: italic;

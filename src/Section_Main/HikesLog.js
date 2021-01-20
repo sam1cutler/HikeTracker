@@ -22,11 +22,8 @@ class HikesLog extends Component {
     render() {
 
         const hikesList = this.context.hikes;
-        const currentUser = this.context.loggedInUser;
         
         const cardList = hikesList.map( (activeHike, i) => {
-            // console.log('In cardList loop in HikesLog.js, and active hike is:')
-            // console.log(activeHike)
             return (
                 <Link
                     key={i}

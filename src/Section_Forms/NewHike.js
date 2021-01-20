@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './NewHike.css';
 import HikesApiService from '../services/hikes-api-service';
 
@@ -89,6 +90,11 @@ class NewHike extends Component {
                         <button type='submit'>Submit hike</button>
                         {' '}
                         <button type='reset'>Reset form</button>
+                        <Link to='/hikes'>
+                            <div className='return-link'>
+                                <p>Return to Hikes Log</p>
+                            </div>
+                        </Link>
                     </section>
                 </form>
             </div>

@@ -9,7 +9,7 @@ class LandingPage extends Component {
             <div>
                 <section className='landing-info-block'>
                     <h2>Track your hikes!</h2>
-                    <p>The simplest use for this app is to compile a clean, concise record of your hikes - when you hiked what trails.</p>
+                    <p>The simplest use for this app is to compile a clean, concise record of your hikes - <b>when</b> you hiked <b>what</b> trails.</p>
                     <p className='screenshot-placeholder'><i>[Screenshot of a sparsely filled-in hike log.]</i></p>
                 </section>
                 
