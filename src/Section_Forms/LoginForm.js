@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LoginForm.css';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
+import HikesContext from '../HikesContext';
 
 class LoginForm extends Component {
 
@@ -9,8 +10,13 @@ class LoginForm extends Component {
         onLoginSuccess: () => {}
     };
 
+    static contextType = HikesContext;
+
     onLoginSuccess = (user_id) => {
-        console.log('Simulating login success');
+        console.log('Login succeeded.');
+
+        this.context.setUser(user_id)
+
         const { history } = this.props
         history.push(`/user/${user_id}/hikes`)
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './HikesLog.css';
 import HikeCard from './HikeCard';
 import HikesApiService from '../services/hikes-api-service';
@@ -15,25 +16,26 @@ class HikesLog extends Component {
                 this.context.setHikes(
                     hikesResult
                 )
-                // console.log('And now, the updated state from API query:')
-                // console.log(this.state.hikes)
             })
       }
 
     render() {
 
         const hikesList = this.context.hikes;
-        // console.log('Here is the hikesList in HikesLog.js, populated from context:')
-        // console.log(hikesList)
-
+        const currentUser = this.context.loggedInUser;
+        
         const cardList = hikesList.map( (activeHike, i) => {
             // console.log('In cardList loop in HikesLog.js, and active hike is:')
             // console.log(activeHike)
             return (
-                <HikeCard
+                <Link
                     key={i}
-                    cardInfo={activeHike}
-                />
+                    to={`/user/${currentUser}/hikes/${activeHike.id}`}
+                >
+                    <HikeCard
+                        cardInfo={activeHike}
+                    />
+                </Link>
             )
         })
 

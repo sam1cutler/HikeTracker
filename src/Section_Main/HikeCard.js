@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import './HikeCard.css';
 import HikesContext from '../HikesContext';
@@ -28,7 +28,7 @@ class HikeCard extends Component {
         const finalDate = format(interimDate, 'd MMM yyyy');
 
         return (
-            <Link to={`/user/1234/hikes/${id}`} className='hike-card'>
+            <div className='hike-card'>
                 <div className='card-title'>
                     <h3>{name}</h3>
                 </div>
@@ -37,7 +37,7 @@ class HikeCard extends Component {
                 <div className='card-element'>{time} hours</div>
                 <div className='card-element'>{elevation} feet</div>
                 <div className='card-element'>{steps} steps</div>
-            </Link>
+            </div>
         )
 
     }

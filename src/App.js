@@ -18,6 +18,7 @@ class App extends Component {
 
   state = {
     hikes: [],
+    loggedInUser: '',
     error: null,
   }
 
@@ -28,12 +29,17 @@ class App extends Component {
       hikes: hikesList
     })
   }
-  
+
+  setLoggedInUser = (userId) => {
+    console.log('Attempting to set logged-in user in context')
+    this.setState({
+      loggedInUser: userId
+    })
+  }
 
   handleDeleteHike = (hikeId) => {
     console.log('User wants to delete a specific hike.')
   }
-
 
   /*-- Render the two main clusters of Routes --*/
   renderNavBarRoutes() {
@@ -102,8 +108,10 @@ class App extends Component {
     const value = {
       hikes: this.state.hikes,
       error: this.state.error,
+      loggedInUser: this.state.loggedInUser,
       setHikes: this.setHikesList,
       deleteHike: this.handleDeleteHike,
+      setUser: this.setLoggedInUser,
     }
 
     return (

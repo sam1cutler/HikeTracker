@@ -22,6 +22,8 @@ class HikeDetail extends Component {
         
         const { weather, notes, reference, social_reference } = activeHike || '';
 
+        const currentUser = this.context.loggedInUser;
+
         return (
             <div className='hike-detail-wrapper'>
                 <HikeCard
@@ -35,7 +37,7 @@ class HikeDetail extends Component {
                 </section>
                 <section className='hike-detail-buttons'>
                     <Link
-                        to={`/user/${this.props.match.params.userId}/hikes/${this.props.match.params.hikeId}/edit`}
+                        to={`/user/${currentUser}/hikes/${this.props.match.params.hikeId}/edit`}
                     >
                         Edit
                     </Link>
