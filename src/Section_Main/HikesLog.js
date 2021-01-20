@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
 import './HikesLog.css';
-//import STORE from '../store';
 import HikeCard from './HikeCard';
+import HikesApiService from '../services/hikes-api-service';
 import HikesContext from '../HikesContext';
 
 class HikesLog extends Component {
 
-    /*
-    constructor(props) {
-        super(props);
-        this.state = {
-          hikesList: []
-        };
-    }
-    */
     static contextType = HikesContext;
     
+    componentDidMount() {
+        HikesApiService.getHikes()
+            .then( hikesResult => {
+                console.log(hikesResult)
+                this.context.setHikes(
+                    hikesResult
+                )
+                // console.log('And now, the updated state from API query:')
+                // console.log(this.state.hikes)
+            })
+      }
 
     render() {
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import HikesContext from './HikesContext';
-import HikesApiService from './services/hikes-api-service';
+//import HikesApiService from './services/hikes-api-service';
 import NavBar from './Section_Nav/NavBar';
 import LandingPage from './Section_Main/LandingPage';
 import SignupPage from './Section_Forms/SignupPage';
@@ -17,22 +17,19 @@ import AnalysisPage from './Section_Main/AnalysisPage';
 class App extends Component {
 
   state = {
-    hikes: []
+    hikes: [],
+    error: null,
   }
 
-  componentDidMount() {
-    HikesApiService.getHikes()
-        .then( hikesResult => {
-            // console.log(hikesResult)
-            this.setState({
-                hikes: hikesResult
-            })
-            // console.log('And now, the updated state from API query:')
-            // console.log(this.state.hikes)
-        })
-  }
 
-  /*-- functions to handle interactivity --*/
+  /*-- functions for context --*/
+  setHikesList = (hikesList) => {
+    this.setState({
+      hikes: hikesList
+    })
+  }
+  
+
   handleDeleteHike = (hikeId) => {
     console.log('User wants to delete a specific hike.')
   }
@@ -104,6 +101,8 @@ class App extends Component {
 
     const value = {
       hikes: this.state.hikes,
+      error: this.state.error,
+      setHikes: this.setHikesList,
       deleteHike: this.handleDeleteHike,
     }
 

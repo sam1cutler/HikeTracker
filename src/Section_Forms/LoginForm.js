@@ -9,10 +9,10 @@ class LoginForm extends Component {
         onLoginSuccess: () => {}
     };
 
-    onLoginSuccess = () => {
+    onLoginSuccess = (user_id) => {
         console.log('Simulating login success');
         const { history } = this.props
-        history.push('/user/1234/hikes')
+        history.push(`/user/${user_id}/hikes`)
     }
 
     handleSubmitJwtAuth = event => {
@@ -27,15 +27,16 @@ class LoginForm extends Component {
         })
             // if server interaction works, will provide authToken in response
             .then(res => {
-                console.log('Received a response from the AuthApiService.postLogin call:')
-                console.log(res)
+                //console.log('Received a response from the AuthApiService.postLogin call:')
+                //console.log(res)
+
                 //clear form values
                 email.value = '';
                 password.value = '';
                 // save authToken in browser
                 TokenService.saveAuthToken(res.authToken)
                 // run EVENTUALLY props-provided onLoginSuccess fxn
-                this.onLoginSuccess()
+                this.onLoginSuccess(res.user_id)
             })
     }
 
