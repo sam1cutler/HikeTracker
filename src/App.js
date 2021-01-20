@@ -71,32 +71,32 @@ class App extends Component {
         />
         <Route 
           exact
-          path='/user/:userId/hikes'
+          path='/hikes'
           component={HikesLog}
         />
         <Route 
           exact
-          path='/user/:userId/hikes/:hikeId'
+          path='/hikes/:hikeId/detail'
           component={HikeDetail}
         />
         <Route 
           exact
-          path='/user/:userId/hikes/:hikeId/edit'
+          path='/hikes/:hikeId/edit'
           component={EditHike}
         />
         <Route 
           exact
-          path='/user/:userId/new-hike'
+          path='/hikes/new-hike'
           component={NewHike}
         />
         <Route 
           exact
-          path='/user/:userId/summary'
+          path='/hikes/summary'
           component={SummaryPage}
         />
         <Route 
           exact
-          path='/user/:userId/analysis'
+          path='/hikes/analysis'
           component={AnalysisPage}
         />
       </>

@@ -18,7 +18,7 @@ class LoginForm extends Component {
         this.context.setUser(user_id)
 
         const { history } = this.props
-        history.push(`/user/${user_id}/hikes`)
+        history.push(`/hikes`)
     }
 
     handleSubmitJwtAuth = event => {

@@ -22,7 +22,7 @@ class HikeCard extends Component {
 
     render() {
 
-        const { id, name, date, distance, time, elevation, steps } = this.props.cardInfo;
+        const { name, date, distance, time, elevation, steps } = this.props.cardInfo;
         
         const interimDate = new Date(date)
         const finalDate = format(interimDate, 'd MMM yyyy');

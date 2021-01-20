@@ -21,7 +21,7 @@ class NavBar extends Component {
                 ))}
 
                 <Route 
-                    path='/user'
+                    path='/hikes'
                     component={UserLinks}
                 />
             </>

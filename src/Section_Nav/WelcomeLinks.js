@@ -24,7 +24,7 @@ class WelcomeLinks extends Component {
                 </Link>
 
                 <Link 
-                    to='/user/1234/hikes'
+                    to='/hikes'
                     className='individual-link'
                 >
                     Sample User

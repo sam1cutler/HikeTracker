@@ -30,7 +30,7 @@ class HikesLog extends Component {
             return (
                 <Link
                     key={i}
-                    to={`/user/${currentUser}/hikes/${activeHike.id}`}
+                    to={`/hikes/${activeHike.id}/detail`}
                 >
                     <HikeCard
                         cardInfo={activeHike}

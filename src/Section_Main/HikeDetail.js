@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HikeDetail.css';
-// import STORE from '../store';
 import HikeCard from './HikeCard';
 import HikesContext from '../HikesContext';
 // import PropTypes from 'prop-types';
@@ -22,7 +21,7 @@ class HikeDetail extends Component {
         
         const { weather, notes, reference, social_reference } = activeHike || '';
 
-        const currentUser = this.context.loggedInUser;
+        //const currentUser = this.context.loggedInUser;
 
         return (
             <div className='hike-detail-wrapper'>
@@ -37,7 +36,7 @@ class HikeDetail extends Component {
                 </section>
                 <section className='hike-detail-buttons'>
                     <Link
-                        to={`/user/${currentUser}/hikes/${this.props.match.params.hikeId}/edit`}
+                        to={`/hikes/${this.props.match.params.hikeId}/edit`}
                     >
                         Edit
                     </Link>
@@ -49,7 +48,7 @@ class HikeDetail extends Component {
                     </div>
                 </section>
                 <section className='return-link'>
-                    <Link to='/user/1234/hikes'>
+                    <Link to='/hikes'>
                         <p>Return to Hikes Log</p>
                     </Link>
                 </section>

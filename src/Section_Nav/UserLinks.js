@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './UserLinks.css';
 import HikesContext from '../HikesContext';
+import TokenService from '../services/token-service';
 
 class UserLinks extends Component {
     
     static contextType = HikesContext;
+
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+    }
 
     render() {
         console.log('Inside UserLinks.js render; here is current context:')
@@ -15,28 +20,37 @@ class UserLinks extends Component {
         return (
             <div className='links-wrapper'>
                 <Link 
-                    to={`/user/${currentUser}/hikes`}
+                    to={`/hikes`}
                     className='individual-link'
                 >
                     Hikes
                 </Link>
                 <Link 
-                    to={`/user/${currentUser}/new-hike`}
+                    to={`/hikes/new-hike`}
                     className='individual-link'
                 >
                     New
                 </Link>
                 <Link 
-                    to={`/user/${currentUser}/summary`}
+                    to={`/hikes/summary`}
                     className='individual-link'
                 >
                     Summary
                 </Link>
+                {/*
                 <Link 
-                    to={`/user/${currentUser}/analysis`}
+                    to={`/hikes/analysis`}
                     className='individual-link'
                 >
                     Analysis
+                </Link>
+                */}
+                <Link 
+                    to={`/`}
+                    className='individual-link'
+                    onClick={this.handleLogoutClick}
+                >
+                    Logout
                 </Link>
             </div>
         )
