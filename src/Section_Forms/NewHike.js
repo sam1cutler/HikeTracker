@@ -17,30 +17,34 @@ class NewHike extends Component {
     handleNewHikeFormSubmission = event => {
         event.preventDefault();
 
-        const { name, distance, time, elevation, weather, notes, reference, steps} = event.target;
+        const { name, distance, time, elevation, steps, rating, weather, notes, reference } = event.target;
         
         HikesApiService.logNewHike({
             name: name.value,
-            date: '2019-11-08T00:00:00.000Z',
+            date: this.state.date.utc().format('DD-MMM-YYYY'),
             distance: distance.value,
             time: time.value,
             elevation: elevation.value,
+            rating: rating.value,
+            steps: steps.value,
             weather: weather.value,
             notes: notes.value,
             reference: reference.value,
-            social_reference: 'http://insta.dummy.com',
-            steps: steps.value,
         })
-
+            .then( () => {
+                console.log('Something happened?')
+            })
     }
 
     render() {
 
+        /*
         console.log('NewHike.js state looks like:')
         console.log(this.state.date)
 
         const dateTinker1 = this.state.date.utc().format('DD-MMM-YYYY');
         console.log(dateTinker1);
+        */
 
         return (
             <div>
@@ -50,31 +54,23 @@ class NewHike extends Component {
                 >
                     <h2>Log a new hike</h2>
                     <section className='hike-form-supersection'>
-                        <p>Date picker here!</p>
-                            
-                            <SingleDatePicker
-                                date={this.state.date} // momentPropTypes.momentObj or null
-                                onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
-                                focused={this.state.focused} // PropTypes.bool
-                                onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-                                id="new-hike-date-picker" // PropTypes.string.isRequired,
-                                numberOfMonths={1}
-                                isOutsideRange={() => {}}
-                            />
-                            
-                            
-                    </section>
-                    <section className='hike-form-supersection'>
                         <p>REQUIRED info:</p>
                         <section className='hike-form-section'>
                             <label htmlFor='name'>Hike name:</label>{' '}
                             <input type="text" name='name' placeholder='Mailbox Peak' required />
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-date'>Date (day / month / year):</label>{' '}
-                            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" /> {' / '}
-                            <input type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" /> {' / '}
-                            <input type="number" name="date-year" className="date-year" placeholder="2017" min="1900" max="2021" /> {' '}
+                            <div className='date-picker-container'>
+                                <SingleDatePicker
+                                    date={this.state.date} // momentPropTypes.momentObj or null
+                                    onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+                                    focused={this.state.focused} // PropTypes.bool
+                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                    id="new-hike-date-picker" // PropTypes.string.isRequired,
+                                    numberOfMonths={1}
+                                    isOutsideRange={() => {}}
+                                />
+                            </div>
                         </section>
                     </section>
 
@@ -82,15 +78,19 @@ class NewHike extends Component {
                         <p>OPTIONAL info:</p>
                         <section className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
-                            <input type="number" name='distance' placeholder={10} />
+                            <input type="number" name='distance' placeholder={10} step="any"/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='time'>Time (hours):</label>{' '}
-                            <input type="number" name='time' placeholder={4} />
+                            <input type="number" name='time' placeholder={4} step="any"/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='elevation'>Total elevation change (feet):</label>{' '}
                             <input type="number" name='elevation' placeholder={2000} />
+                        </section>
+                        <section className='hike-form-section'>
+                            <label htmlFor='rating'>Rating out of 5:</label>{' '}
+                            <input type="number" name='rating' placeholder={3} min={1} max={5}/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='steps'>Total steps taken:</label>{' '}

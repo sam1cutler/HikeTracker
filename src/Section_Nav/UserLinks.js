@@ -9,7 +9,8 @@ class UserLinks extends Component {
     static contextType = HikesContext;
 
     handleLogoutClick = () => {
-        TokenService.clearAuthToken()
+        TokenService.clearAuthToken();
+        this.context.clearHikes();
     }
 
     render() {

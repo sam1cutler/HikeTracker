@@ -30,6 +30,12 @@ class App extends Component {
     })
   }
 
+  clearHikesList = () => {
+    this.setState({
+      hikes: []
+    })
+  }
+
   setActiveHike = (activeHike) => {
     this.setState( {activeHike} )
   }
@@ -115,6 +121,7 @@ class App extends Component {
       activeHike: this.state.activeHike,
       error: this.state.error,
       setHikes: this.setHikesList,
+      clearHikes: this.clearHikesList,
       setActiveHike: this.setActiveHike,
       clearActiveHike: this.clearActiveHike,
       deleteHike: this.handleDeleteHike,

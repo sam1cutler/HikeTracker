@@ -5,6 +5,7 @@ import './HikeDetail.css';
 import HikeCard from './HikeCard';
 import HikesContext from '../HikesContext';
 import HikesApiService from '../services/hikes-api-service';
+//import HikesLog from './HikesLog';
 // import PropTypes from 'prop-types';
 
 class HikeDetail extends Component {
@@ -14,6 +15,18 @@ class HikeDetail extends Component {
     handleDeleteHike = (event) => {
         event.preventDefault();
         console.log('User wants to delete a hike.')
+
+        const hikeId = this.props.match.params.hikeId;
+        HikesApiService.deleteHike(hikeId)
+            .then( () => {
+                console.log('Got response from server after delete request.')
+                const { history } = this.props
+                history.push(`/hikes`)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
     componentDidMount() {

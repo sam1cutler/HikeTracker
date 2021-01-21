@@ -40,11 +40,24 @@ const HikesApiService = {
         })
             .then(res => {
                 console.log('In HikesApiService, got response from server for POST newHike request:')
-                return (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
+                if (!res.ok) {
+                    throw new Error('Something went wrong with note delete request')
+                }
             })
-    }
+    },
+    deleteHike(hikeId) {
+        console.log('In HikesApiService, about to delete a hike.')
+        return fetch(`${config.API_ENDPOINT}/hikes/${hikeId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res => {
+
+            })
+    },
 }
 
 export default HikesApiService;

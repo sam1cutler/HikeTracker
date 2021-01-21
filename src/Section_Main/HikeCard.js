@@ -43,7 +43,7 @@ class HikeCard extends Component {
                 <div className='card-element'>{distance} miles</div>
                 <div className='card-element'>{time} hours</div>
                 <div className='card-element'>{elevation} feet</div>
-                <div className='card-element'>{rating}/5</div>
+                <div className='card-element'>{rating}/5 ⭐️</div>
             </div>
         )
 

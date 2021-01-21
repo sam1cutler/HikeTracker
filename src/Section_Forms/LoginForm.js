@@ -53,7 +53,7 @@ class LoginForm extends Component {
                     className='login-form-wrapper'
                     onSubmit={this.handleSubmitJwtAuth}
                 >
-                    <h2>Login</h2>
+                    <h2>Log In</h2>
                     <section className='login-form-section'>
                         <label htmlFor='email'>Email:</label>{' '}
                         <input type="email" name='email' required />
