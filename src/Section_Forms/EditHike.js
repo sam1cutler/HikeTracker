@@ -1,16 +1,50 @@
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 import './EditHike.css';
 import HikesContext from '../HikesContext';
 import HikesApiService from '../services/hikes-api-service';
 
 class EditHike extends Component {
 
+    state = {
+        date: moment(),
+        focused: false,
+    }
+
     static contextType = HikesContext;
 
-    handleEditHike = (event) => {
+    handleEditHikeFormSubmission = (event) => {
         event.preventDefault();
         console.log('User wants to edit a hike.')
+
+        const { name, distance, time, elevation, steps, rating, weather, notes, reference } = event.target;
+
+        const editedHikeInfo = {
+            name: name.value,
+            date: this.state.date.utc().format('DD-MMM-YYYY'),
+            distance: distance.value,
+            time: time.value,
+            elevation: elevation.value,
+            rating: rating.value,
+            steps: steps.value,
+            weather: weather.value,
+            notes: notes.value,
+            reference: reference.value,
+        }
+
+        HikesApiService.editHike(
+            this.props.match.params.hikeId,
+            editedHikeInfo
+        )
+            .then( res => {
+                console.log('Got response from server to edit request.')
+                const { history } = this.props
+                history.push('/hikes')
+            })
     }
 
     componentDidMount() {
@@ -18,6 +52,9 @@ class EditHike extends Component {
             .then( hikeInfo => {
                 console.log(hikeInfo)
                 this.context.setActiveHike(hikeInfo)
+                this.setState({
+                    date: moment(hikeInfo.date)
+                })
             })
     }
 
@@ -25,11 +62,14 @@ class EditHike extends Component {
 
         const activeHike = this.context.activeHike;
         
-        const { name, distance, time, elevation, weather, notes, reference, steps } = activeHike || '';
+        const { name, distance, time, elevation, rating, steps, weather, notes, reference } = activeHike || '';
 
         return (
             <div>
-                <form id='edit-hike-entry'>
+                <form 
+                    className='edit-hike-entry'
+                    onSubmit={this.handleEditHikeFormSubmission}
+                >
 
                     <section className='hike-form-supersection'>
                         <h2>Update any of the info for this hike:</h2>
@@ -38,10 +78,17 @@ class EditHike extends Component {
                             <input type="text" name='hike-name' defaultValue={name} />
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-date'>Date (day / month / year):</label>{' '}
-                            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required="" /> {' / '}
-                            <input type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" required="" /> {' / '}
-                            <input type="number" name="date-year" className="date-year" placeholder="2017" min="1900" max="2021" required="" /> {' '}
+                        <div className='date-picker-container'>
+                                <SingleDatePicker
+                                    date={this.state.date} // momentPropTypes.momentObj or null
+                                    onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+                                    focused={this.state.focused} // PropTypes.bool
+                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                    id="new-hike-date-picker" // PropTypes.string.isRequired,
+                                    numberOfMonths={1}
+                                    isOutsideRange={() => {}}
+                                />
+                            </div>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
@@ -56,34 +103,38 @@ class EditHike extends Component {
                             <input type="number" name='elevation' defaultValue={elevation} />
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-weather'>Weather:</label>{' '}
-                            <select name='hike-weather' id='hike-weather' defaultValue={weather}>
-                            <option value='sun'>Sun</option>
-                            <option value='cloudy'>Clouds</option>
-                            <option value='rain'>Rain</option>
-                            <option value='snow'>Snow</option>
+                            <label htmlFor='rating'>Rating out of 5:</label>{' '}
+                            <input type="number" name='rating' defaultValue={rating} min={1} max={5}/>
+                        </section>
+                        <section className='hike-form-section'>
+                            <label htmlFor='steps'>Total steps taken:</label>{' '}
+                            <input type="number" name='steps' defaultValue={steps} />
+                        </section>
+                        <section className='hike-form-section'>
+                            <label htmlFor='weather'>Weather:</label>{' '}
+                            <select name='weather' id='weather' defaultValue={weather}>
+                            <option value='Sun'>Sun</option>
+                            <option value='Clouds'>Clouds</option>
+                            <option value='Rain'>Rain</option>
+                            <option value='Snow'>Snow</option>
                             </select>
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-notes'>Notes:</label>{' '}
-                            <textarea id='hike-notes' name='hike-notes' rows='4' cols='50' defaultValue={notes}>
+                            <label htmlFor='notes'>Notes:</label>{' '}
+                            <textarea id='notes' name='notes' rows='4' cols='50' defaultValue={notes}>
                             </textarea>
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-reference'>Reference:</label>{' '}
-                            <input type='text' name='hike-reference' size={50} defaultValue={reference} />
-                        </section>
-                        <section className='hike-form-section'>
-                            <label htmlFor='hike-steps'>Total steps taken:</label>{' '}
-                            <input type="number" name='hike-steps' defaultValue={steps} />
+                            <label htmlFor='reference'>Reference:</label>{' '}
+                            <input type='text' name='reference' size={50} defaultValue={reference} />
                         </section>
                         <div>
-                        <div
+                            <button
                                 className='submit-button'
-                                onClick={this.handleEditHike}
+                                type='submit'
                             >
                                 Submit updated hike info
-                            </div>
+                            </button>
                             <Link
                                 to={`/hikes/${this.props.match.params.hikeId}/detail`}
                             >

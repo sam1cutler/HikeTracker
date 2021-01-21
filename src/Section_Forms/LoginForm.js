@@ -42,6 +42,11 @@ class LoginForm extends Component {
                 // run EVENTUALLY props-provided onLoginSuccess fxn
                 this.onLoginSuccess()
             })
+            .catch(res => {
+                console.log('There was an error.')
+                // TO-DO: implement error-reporting, including here. 
+                // this.setState({ error: res.error })
+            })
     }
 
     render() {

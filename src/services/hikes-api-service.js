@@ -58,6 +58,25 @@ const HikesApiService = {
 
             })
     },
+    editHike(hikeId, editedHikeInfo) {
+        console.log('In HikesApiService, about to edit a hike.')
+        return fetch(`${config.API_ENDPOINT}/hikes/${hikeId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(editedHikeInfo),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Something went wrong with edit note request.')
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    },
 }
 
 export default HikesApiService;

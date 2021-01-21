@@ -32,19 +32,13 @@ class NewHike extends Component {
             reference: reference.value,
         })
             .then( () => {
-                console.log('Something happened?')
+                console.log('New hike was submitted.')
+                const { history } = this.props
+                history.push('/hikes')
             })
     }
 
     render() {
-
-        /*
-        console.log('NewHike.js state looks like:')
-        console.log(this.state.date)
-
-        const dateTinker1 = this.state.date.utc().format('DD-MMM-YYYY');
-        console.log(dateTinker1);
-        */
 
         return (
             <div>
@@ -99,10 +93,10 @@ class NewHike extends Component {
                         <section className='hike-form-section'>
                             <label htmlFor='weather'>Weather:</label>{' '}
                             <select name='weather' id='weather'>
-                            <option value='sun'>Sun</option>
-                            <option value='cloudy'>Clouds</option>
-                            <option value='rain'>Rain</option>
-                            <option value='snow'>Snow</option>
+                            <option value='Sun'>Sun</option>
+                            <option value='Clouds'>Clouds</option>
+                            <option value='Rain'>Rain</option>
+                            <option value='Snow'>Snow</option>
                             </select>
                         </section>
                         <section className='hike-form-section'>
