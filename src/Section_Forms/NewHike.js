@@ -1,9 +1,18 @@
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 import './NewHike.css';
 import HikesApiService from '../services/hikes-api-service';
 
 class NewHike extends Component {
+
+    state = {
+        date: moment(),
+        focused: false,
+    }
 
     handleNewHikeFormSubmission = event => {
         event.preventDefault();
@@ -27,6 +36,12 @@ class NewHike extends Component {
 
     render() {
 
+        console.log('NewHike.js state looks like:')
+        console.log(this.state.date)
+
+        const dateTinker1 = this.state.date.utc().format('DD-MMM-YYYY');
+        console.log(dateTinker1);
+
         return (
             <div>
                 <form 
@@ -34,6 +49,21 @@ class NewHike extends Component {
                     onSubmit={this.handleNewHikeFormSubmission}
                 >
                     <h2>Log a new hike</h2>
+                    <section className='hike-form-supersection'>
+                        <p>Date picker here!</p>
+                            
+                            <SingleDatePicker
+                                date={this.state.date} // momentPropTypes.momentObj or null
+                                onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+                                focused={this.state.focused} // PropTypes.bool
+                                onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                id="new-hike-date-picker" // PropTypes.string.isRequired,
+                                numberOfMonths={1}
+                                isOutsideRange={() => {}}
+                            />
+                            
+                            
+                    </section>
                     <section className='hike-form-supersection'>
                         <p>REQUIRED info:</p>
                         <section className='hike-form-section'>

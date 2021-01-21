@@ -27,6 +27,10 @@ class HikeCard extends Component {
         const interimDate = new Date(date)
         const finalDate = format(interimDate, 'd MMM yyyy');
 
+        const testDate1 = new Date('08-Jan-2017');
+        const testDate2 = format(testDate1, 'd MMM yyyy');
+        console.log(testDate2)
+
         return (
             <div className='hike-card'>
                 <div className='card-title'>
