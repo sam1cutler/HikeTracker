@@ -18,8 +18,7 @@ class App extends Component {
 
   state = {
     hikes: [],
-    activeHike: { date: '2019-01-03T00:00:00.000Z' },
-    loggedInUser: '',
+    activeHike: { date: '01-Jan-2020' },
     error: null,
   }
 
@@ -35,10 +34,11 @@ class App extends Component {
     this.setState( {activeHike} )
   }
 
-  setLoggedInUser = (userId) => {
-    console.log('Attempting to set logged-in user in context')
+  clearActiveHike = () => {
     this.setState({
-      loggedInUser: userId
+      activeHike: {
+        date: '01-Jan-2020'
+      }
     })
   }
 
@@ -114,11 +114,10 @@ class App extends Component {
       hikes: this.state.hikes,
       activeHike: this.state.activeHike,
       error: this.state.error,
-      loggedInUser: this.state.loggedInUser,
       setHikes: this.setHikesList,
       setActiveHike: this.setActiveHike,
+      clearActiveHike: this.clearActiveHike,
       deleteHike: this.handleDeleteHike,
-      setUser: this.setLoggedInUser,
     }
 
     return (

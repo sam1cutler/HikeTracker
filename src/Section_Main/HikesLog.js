@@ -16,8 +16,10 @@ class HikesLog extends Component {
                 this.context.setHikes(
                     hikesResult
                 )
-            })
-      }
+            });
+        
+        this.context.clearActiveHike();
+    }
 
     render() {
 
@@ -38,7 +40,6 @@ class HikesLog extends Component {
 
         return (
             <div className='the-log'>
-                <h2>Your hikes:</h2>
                 {cardList}
             </div>
         )

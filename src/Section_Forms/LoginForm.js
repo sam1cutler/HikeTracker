@@ -12,10 +12,8 @@ class LoginForm extends Component {
 
     static contextType = HikesContext;
 
-    onLoginSuccess = (user_id) => {
+    onLoginSuccess = () => {
         console.log('Login succeeded.');
-
-        this.context.setUser(user_id)
 
         const { history } = this.props
         history.push(`/hikes`)
@@ -42,7 +40,7 @@ class LoginForm extends Component {
                 // save authToken in browser
                 TokenService.saveAuthToken(res.authToken)
                 // run EVENTUALLY props-provided onLoginSuccess fxn
-                this.onLoginSuccess(res.user_id)
+                this.onLoginSuccess()
             })
     }
 

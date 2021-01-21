@@ -15,6 +15,7 @@ class HikeCard extends Component {
             distance: '',
             time: '',
             elevation: '',
+            rating: '',
         }
     }
 
@@ -22,14 +23,16 @@ class HikeCard extends Component {
 
     render() {
 
-        const { name, date, distance, time, elevation, steps } = this.props.cardInfo;
+        const { name, date, distance, time, elevation, rating } = this.props.cardInfo;
         
         const interimDate = new Date(date)
         const finalDate = format(interimDate, 'd MMM yyyy');
 
+        /*
         const testDate1 = new Date('08-Jan-2017');
         const testDate2 = format(testDate1, 'd MMM yyyy');
         console.log(testDate2)
+        */
 
         return (
             <div className='hike-card'>
@@ -40,7 +43,7 @@ class HikeCard extends Component {
                 <div className='card-element'>{distance} miles</div>
                 <div className='card-element'>{time} hours</div>
                 <div className='card-element'>{elevation} feet</div>
-                <div className='card-element'>{steps} steps</div>
+                <div className='card-element'>{rating}/5</div>
             </div>
         )
 

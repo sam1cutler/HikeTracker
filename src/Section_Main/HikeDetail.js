@@ -28,9 +28,7 @@ class HikeDetail extends Component {
         
         const activeHike = this.context.activeHike;
         
-        const { weather, notes, reference, social_reference } = activeHike || '';
-
-        // const currentUser = this.context.loggedInUser;
+        const { weather, notes, reference } = activeHike || '';
 
         return (
             <div className='hike-detail-wrapper'>
@@ -41,7 +39,6 @@ class HikeDetail extends Component {
                     <p>Weather: {weather}</p>
                     <p>Notes: {notes}</p>
                     <p>Reference: <a href={reference} target='_blank' rel="noreferrer">{reference}</a></p>
-                    <p>Social media link: {social_reference}</p>
                 </section>
                 <section className='hike-detail-buttons'>
                     <Link
