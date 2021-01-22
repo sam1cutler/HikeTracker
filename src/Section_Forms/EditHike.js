@@ -34,6 +34,17 @@ class EditHike extends Component {
             weather: weather.value,
             notes: notes.value,
             reference: reference.value,
+        };
+        console.log('Here is editedHikeInfo:')
+        console.log(editedHikeInfo);
+
+        // replace any un-filled, optional fields with 'null' for DB submission
+        for (const [key, value] of Object.entries(editedHikeInfo)) {
+            //console.log(key);
+            //console.log(value);
+            if (value === '') {
+                editedHikeInfo[key] = null;
+            }
         }
 
         HikesApiService.editHike(
@@ -61,6 +72,8 @@ class EditHike extends Component {
     render() {
 
         const activeHike = this.context.activeHike;
+
+        console.log(activeHike);
         
         const { name, distance, time, elevation, rating, steps, weather, notes, reference } = activeHike || '';
 
@@ -74,8 +87,8 @@ class EditHike extends Component {
                     <section className='hike-form-supersection'>
                         <h2>Update any of the info for this hike:</h2>
                         <section className='hike-form-section'>
-                            <label htmlFor='hike-name'>Hike name:</label>{' '}
-                            <input type="text" name='hike-name' defaultValue={name} />
+                            <label htmlFor='name'>Hike name:</label>{' '}
+                            <input type="text" name='name' defaultValue={name} />
                         </section>
                         <section className='hike-form-section'>
                         <div className='date-picker-container'>
@@ -92,15 +105,15 @@ class EditHike extends Component {
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
-                            <input type="number" name='distance' defaultValue={distance}/>
+                            <input type="number" name='distance' defaultValue={distance} step="any"/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='time'>Time (hours):</label>{' '}
-                            <input type="number" name='time' defaultValue={time}/>
+                            <input type="number" name='time' defaultValue={time} step="any"/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='elevation'>Total elevation change (feet):</label>{' '}
-                            <input type="number" name='elevation' defaultValue={elevation} />
+                            <input type="number" name='elevation' defaultValue={elevation} step="any"/>
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='rating'>Rating out of 5:</label>{' '}

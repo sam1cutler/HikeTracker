@@ -2,15 +2,8 @@ import React, { Component } from 'react';
 import './LoginForm.css';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
-import HikesContext from '../HikesContext';
 
 class LoginForm extends Component {
-
-    static defaultProps = {
-        onLoginSuccess: () => {}
-    };
-
-    static contextType = HikesContext;
 
     onLoginSuccess = () => {
         console.log('Login succeeded.');
@@ -31,20 +24,17 @@ class LoginForm extends Component {
         })
             // if server interaction works, will provide authToken in response
             .then(res => {
-                //console.log('Received a response from the AuthApiService.postLogin call:')
-                //console.log(res)
-
                 //clear form values
                 email.value = '';
                 password.value = '';
                 // save authToken in browser
                 TokenService.saveAuthToken(res.authToken)
-                // run EVENTUALLY props-provided onLoginSuccess fxn
+                // run onLoginSuccess fxn
                 this.onLoginSuccess()
             })
             .catch(res => {
                 console.log('There was an error.')
-                // TO-DO: implement error-reporting, including here. 
+                // TO-DO: implement error-reporting, including here.
                 // this.setState({ error: res.error })
             })
     }

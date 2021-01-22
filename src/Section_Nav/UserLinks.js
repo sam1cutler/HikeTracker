@@ -14,8 +14,8 @@ class UserLinks extends Component {
     }
 
     render() {
-        console.log('Inside UserLinks.js render; here is current context:')
-        console.log(this.context)
+        //console.log('Inside UserLinks.js render; here is current context:')
+        //console.log(this.context)
         //const currentUser = this.context.loggedInUser;
 
         return (

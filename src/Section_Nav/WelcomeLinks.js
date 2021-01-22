@@ -1,11 +1,41 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './WelcomeLinks.css';
+import AuthApiService from '../services/auth-api-service';
+import TokenService from '../services/token-service';
 
 class WelcomeLinks extends Component {
 
-    render() {
+    onLoginSuccess = () => {
+        console.log('Login succeeded.');
 
+        const { history } = this.props
+        history.push(`/hikes`)
+    }
+    
+    handleEnterDemoMode = () => {
+        console.log('User would like to demo the app.')
+
+        AuthApiService.postLogin({
+            email: 'sampleUser@sampleUser.com',
+            password: 'abraCADABR4!'
+        })
+            // if server interaction works, will provide authToken in response
+            .then(res => {
+                // save authToken in browser
+                TokenService.saveAuthToken(res.authToken)
+                // run onLoginSuccess fxn
+                this.onLoginSuccess()
+            })
+            .catch(res => {
+                console.log('There was an error.')
+                // TO-DO: implement error-reporting, including here.
+                // this.setState({ error: res.error })
+            })
+        
+    }
+
+    render() {
 
         return (
             <div className='links-wrapper'>
@@ -23,12 +53,12 @@ class WelcomeLinks extends Component {
                     Log In
                 </Link>
 
-                <Link 
-                    to='/hikes'
-                    className='individual-link'
+                <p 
+                    onClick={this.handleEnterDemoMode}
+                    className='individual-link demo-link'
                 >
-                    Sample User
-                </Link>
+                    Demo
+                </p>
             </div>
         )
 
