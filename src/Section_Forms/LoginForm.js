@@ -6,7 +6,7 @@ import TokenService from '../services/token-service';
 class LoginForm extends Component {
 
     onLoginSuccess = () => {
-        console.log('Login succeeded.');
+        //console.log('Login succeeded.');
 
         const { history } = this.props
         history.push(`/hikes`)
@@ -14,7 +14,7 @@ class LoginForm extends Component {
 
     handleSubmitJwtAuth = event => {
         event.preventDefault();
-        console.log('User has submitted the login form.');
+        //console.log('User has submitted the login form.');
 
         const { email, password } = event.target;
 
@@ -33,7 +33,7 @@ class LoginForm extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                console.log('There was an error.')
+                //console.log('There was an error.')
                 // TO-DO: implement error-reporting, including here.
                 // this.setState({ error: res.error })
             })

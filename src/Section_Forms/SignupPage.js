@@ -7,12 +7,12 @@ class SignupPage extends Component {
     
     handleSignupSubmit = event => {
         event.preventDefault()
-        console.log('User wants to register new account.')
+        //console.log('User wants to register new account.')
 
         const { email, password } = event.target;
 
-        console.log(email)
-        console.log(password)
+        //console.log(email)
+        //console.log(password)
 
         
         AuthApiService.postUser({
@@ -20,8 +20,8 @@ class SignupPage extends Component {
             password: password.value
         })
             .then( () => {
-                console.log('User POST request did something.');
-                console.log('Attempting to log in after registration.')
+                //console.log('User POST request did something.');
+                //console.log('Attempting to log in after registration.')
                 AuthApiService.postLogin({
                     email: email.value,
                     password: password.value
@@ -39,12 +39,12 @@ class SignupPage extends Component {
 
                     })
                     .catch(res => {
-                        console.log('There was an error in logging in after registration.')
+                        //console.log('There was an error in logging in after registration.')
                     })
             })
             .catch(res => {
                 // DISPLAY TO USER eventually...
-                console.log({ error: res.error })
+                //console.log({ error: res.error })
             })
             
     }

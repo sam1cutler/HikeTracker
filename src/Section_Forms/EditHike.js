@@ -19,7 +19,7 @@ class EditHike extends Component {
 
     handleEditHikeFormSubmission = (event) => {
         event.preventDefault();
-        console.log('User wants to edit a hike.')
+        //console.log('User wants to edit a hike.')
 
         const { name, distance, time, elevation, steps, rating, weather, notes, reference } = event.target;
 
@@ -35,8 +35,8 @@ class EditHike extends Component {
             notes: notes.value,
             reference: reference.value,
         };
-        console.log('Here is editedHikeInfo:')
-        console.log(editedHikeInfo);
+        //console.log('Here is editedHikeInfo:')
+        //console.log(editedHikeInfo);
 
         // replace any un-filled, optional fields with 'null' for DB submission
         for (const [key, value] of Object.entries(editedHikeInfo)) {
@@ -52,7 +52,7 @@ class EditHike extends Component {
             editedHikeInfo
         )
             .then( res => {
-                console.log('Got response from server to edit request.')
+                //console.log('Got response from server to edit request.')
                 const { history } = this.props
                 history.push('/hikes')
             })
@@ -61,7 +61,7 @@ class EditHike extends Component {
     componentDidMount() {
         HikesApiService.getHikeById(this.props.match.params.hikeId)
             .then( hikeInfo => {
-                console.log(hikeInfo)
+                //console.log(hikeInfo)
                 this.context.setActiveHike(hikeInfo)
                 this.setState({
                     date: moment(hikeInfo.date)
@@ -73,7 +73,7 @@ class EditHike extends Component {
 
         const activeHike = this.context.activeHike;
 
-        console.log(activeHike);
+        //console.log(activeHike);
         
         const { name, distance, time, elevation, rating, steps, weather, notes, reference } = activeHike || '';
 

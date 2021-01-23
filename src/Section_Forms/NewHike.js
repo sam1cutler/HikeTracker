@@ -16,7 +16,7 @@ class NewHike extends Component {
 
     handleNewHikeFormSubmission = event => {
         event.preventDefault();
-        console.log('New hike form submitted.')
+        //console.log('New hike form submitted.')
 
         const { name, distance, time, elevation, steps, rating, weather, notes, reference } = event.target;
         const newHikeInfo = {
@@ -47,7 +47,7 @@ class NewHike extends Component {
         
         HikesApiService.logNewHike(newHikeInfo)
             .then( () => {
-                console.log('New hike was submitted.')
+                //console.log('New hike was submitted.')
                 const { history } = this.props
                 history.push('/hikes')
             })

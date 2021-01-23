@@ -10,21 +10,27 @@ import HikesApiService from '../services/hikes-api-service';
 
 class HikeDetail extends Component {
 
+    static defaultProps = {
+        match: {
+            params: {}
+        }
+    }
+
     static contextType = HikesContext;
 
     handleDeleteHike = (event) => {
         event.preventDefault();
-        console.log('User wants to delete a hike.')
+        //console.log('User wants to delete a hike.')
 
         const hikeId = this.props.match.params.hikeId;
         HikesApiService.deleteHike(hikeId)
             .then( () => {
-                console.log('Got response from server after delete request.')
+                //console.log('Got response from server after delete request.')
                 const { history } = this.props
                 history.push(`/hikes`)
             })
             .catch(error => {
-                console.log(error)
+                //console.log(error)
             })
 
     }
@@ -32,7 +38,7 @@ class HikeDetail extends Component {
     componentDidMount() {
         HikesApiService.getHikeById(this.props.match.params.hikeId)
             .then( hikeInfo => {
-                console.log(hikeInfo)
+                //console.log(hikeInfo)
                 this.context.setActiveHike(hikeInfo)
             })
     }

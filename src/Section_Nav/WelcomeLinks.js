@@ -7,14 +7,14 @@ import TokenService from '../services/token-service';
 class WelcomeLinks extends Component {
 
     onLoginSuccess = () => {
-        console.log('Login succeeded.');
+        //console.log('Login succeeded.');
 
         const { history } = this.props
         history.push(`/hikes`)
     }
     
     handleEnterDemoMode = () => {
-        console.log('User would like to demo the app.')
+        //console.log('User would like to demo the app.')
 
         AuthApiService.postLogin({
             email: 'sampleUser@sampleUser.com',
@@ -28,7 +28,7 @@ class WelcomeLinks extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                console.log('There was an error.')
+                //console.log('There was an error.')
                 // TO-DO: implement error-reporting, including here.
                 // this.setState({ error: res.error })
             })

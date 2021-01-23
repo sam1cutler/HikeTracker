@@ -12,7 +12,7 @@ class HikesLog extends Component {
     componentDidMount() {
         HikesApiService.getHikes()
             .then( hikesResult => {
-                console.log(hikesResult)
+                //console.log(hikesResult)
                 this.context.setHikes(
                     hikesResult
                 )

@@ -49,7 +49,7 @@ class App extends Component {
   }
 
   handleDeleteHike = (hikeId) => {
-    console.log('User wants to delete a specific hike.')
+    //console.log('User wants to delete a specific hike.')
   }
 
   /*-- Render the two main clusters of Routes --*/
