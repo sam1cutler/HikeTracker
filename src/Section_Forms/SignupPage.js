@@ -67,6 +67,9 @@ class SignupPage extends Component {
                             <label htmlFor='password'>Password:</label>{' '}
                             <input type="password" name='password' required />
                         </section>
+                        <section className='password-guidance'>
+                            <p>Your password must be at least 8 characters in length, and include at least one upper case and one lower case letter, at least one number, and at least one special character ( ! @ # $ % ^ & ).</p>
+                        </section>
                         <section className='signup-form-section'>
                             <button type='submit'>Sign up</button>
                         </section>
