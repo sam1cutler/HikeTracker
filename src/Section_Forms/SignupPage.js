@@ -4,6 +4,10 @@ import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
 
 class SignupPage extends Component {
+
+    state = {
+        error: null,
+    }
     
     handleSignupSubmit = event => {
         event.preventDefault()
@@ -39,17 +43,33 @@ class SignupPage extends Component {
 
                     })
                     .catch(res => {
-                        //console.log('There was an error in logging in after registration.')
+                        console.log('There was an error in logging in after registration.')
+                        console.log(res.error)
+                        this.setState({
+                            error: res.error
+                        });
                     })
             })
             .catch(res => {
                 // DISPLAY TO USER eventually...
-                //console.log({ error: res.error })
+                console.log('There was an error in creating the new user.')
+                console.log(res.error)
+                this.setState({
+                    error: res.error
+                });
             })
             
     }
 
+    generateErrorMessage = () => {
+        return (this.state.error)
+            ? this.state.error
+            : null;
+    }
+
     render() {
+
+        const errorMessage = this.generateErrorMessage();
 
         return (
             <div className='signup-form-wrapper'>
@@ -59,6 +79,9 @@ class SignupPage extends Component {
                 >
                     <div className='signup-form-wrapper'>
                         <h2>Sign up for HikeTracker:</h2>
+                        <div className='error-message'>
+                            {errorMessage}
+                        </div>
                         <section className='signup-form-section'>
                             <label htmlFor='email'>Email:</label>{' '}
                             <input type="email" name='email' required />

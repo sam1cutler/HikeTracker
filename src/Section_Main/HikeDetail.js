@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import { format } from 'date-fns';
 import './HikeDetail.css';
 import HikeCard from './HikeCard';
 import HikesContext from '../HikesContext';
 import HikesApiService from '../services/hikes-api-service';
-//import HikesLog from './HikesLog';
 // import PropTypes from 'prop-types';
 
 class HikeDetail extends Component {

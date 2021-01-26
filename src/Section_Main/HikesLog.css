@@ -6,3 +6,14 @@ h2 {
     text-shadow: none;
     box-shadow: 0 0 5px grey;
 }
+
+.welcome-message p {
+    text-align: center;
+    font-size: 16pt;
+    margin: 10px;
+}
+
+.welcome-message a:hover {
+    box-shadow: none;
+    text-shadow: 0 0 5px grey;
+}

@@ -38,27 +38,34 @@ class WelcomeLinks extends Component {
     render() {
 
         return (
-            <div className='links-wrapper'>
-                <Link 
-                    to='/signup'
-                    className='individual-link'
-                >
-                    Sign Up
-                </Link>
+            <div className='nav-bar-wrapper'>
+                <div>
+                    <Link to='/'>
+                        <h1>HikeTracker</h1>
+                    </Link>
+                </div>
+                <div className='links-wrapper'>
+                    <Link 
+                        to='/signup'
+                        className='individual-link'
+                    >
+                        Sign Up
+                    </Link>
 
-                <Link
-                    to='/login'
-                    className='individual-link'
-                >
-                    Log In
-                </Link>
+                    <Link
+                        to='/login'
+                        className='individual-link'
+                    >
+                        Log In
+                    </Link>
 
-                <p 
-                    onClick={this.handleEnterDemoMode}
-                    className='individual-link demo-link'
-                >
-                    Demo
-                </p>
+                    <p 
+                        onClick={this.handleEnterDemoMode}
+                        className='individual-link demo-link'
+                    >
+                        Demo
+                    </p>
+                </div>
             </div>
         )
 

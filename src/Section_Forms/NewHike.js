@@ -65,7 +65,7 @@ class NewHike extends Component {
                 >
                     <h2>Log a new hike</h2>
                     <section className='hike-form-supersection'>
-                        <p>REQUIRED info:</p>
+                        <h3>Required info:</h3>
                         <section className='hike-form-section'>
                             <label htmlFor='name'>Hike name:</label>{' '}
                             <input type="text" name='name' placeholder='Mailbox Peak' required />
@@ -86,7 +86,7 @@ class NewHike extends Component {
                     </section>
 
                     <section className='hike-form-supersection'>
-                        <p>OPTIONAL info:</p>
+                        <h3>Optional info:</h3>
                         <section className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
                             <input type="number" name='distance' placeholder={10} step="any"/>

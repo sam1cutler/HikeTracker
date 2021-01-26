@@ -5,6 +5,10 @@ import TokenService from '../services/token-service';
 
 class LoginForm extends Component {
 
+    state = {
+        error: null,
+    }
+
     onLoginSuccess = () => {
         //console.log('Login succeeded.');
 
@@ -33,13 +37,25 @@ class LoginForm extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                //console.log('There was an error.')
+                console.log('There was an error.')
                 // TO-DO: implement error-reporting, including here.
                 // this.setState({ error: res.error })
-            })
+                console.log(res.error)
+                this.setState({
+                    error: res.error
+                });
+            });
+    }
+
+    generateErrorMessage = () => {
+        return (this.state.error)
+            ? this.state.error
+            : null;
     }
 
     render() {
+
+        const errorMessage = this.generateErrorMessage();
 
         return (
             <div className='login-form-wrapper'>
@@ -49,6 +65,9 @@ class LoginForm extends Component {
                     onSubmit={this.handleSubmitJwtAuth}
                 >
                     <h2>Log In</h2>
+                    <div className='error-message'>
+                        {errorMessage}
+                    </div>
                     <section className='login-form-section'>
                         <label htmlFor='email'>Email:</label>{' '}
                         <input type="email" name='email' required />

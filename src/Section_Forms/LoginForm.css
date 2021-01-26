@@ -4,10 +4,20 @@
     align-items: center;
 }
 
+.login-form-wrapper h2 {
+    margin: 10px 0px;
+}
+
 .login-form-section {
     margin: 5px;
 }
 
 .date-picker-container {
     margin: 10px;
+}
+
+.error-message {
+    margin: 15px;
+    color: red;
+    font-style: italic;
 }

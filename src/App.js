@@ -3,7 +3,9 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import HikesContext from './HikesContext';
 //import HikesApiService from './services/hikes-api-service';
-import NavBar from './Section_Nav/NavBar';
+//import NavBar from './Section_Nav/NavBar';
+import WelcomeLinks from './Section_Nav/WelcomeLinks';
+import UserLinks from './Section_Nav/UserLinks';
 import LandingPage from './Section_Main/LandingPage';
 import SignupPage from './Section_Forms/SignupPage';
 import LoginForm from './Section_Forms/LoginForm';
@@ -55,10 +57,21 @@ class App extends Component {
   /*-- Render the two main clusters of Routes --*/
   renderNavBarRoutes() {
     return (
-      <Route 
-        path='/'
-        component={NavBar}
-      />
+      <>
+          {['/','/signup','/sample','/login'].map(path => (
+              <Route
+                  exact
+                  key={path}
+                  path={path}
+                  component={WelcomeLinks}
+              />
+          ))}
+
+          <Route 
+              path='/hikes'
+              component={UserLinks}
+          />
+      </>
     )
   }
 

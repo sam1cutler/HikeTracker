@@ -11,3 +11,9 @@
 .password-guidance p {
     text-align: center;
 }
+
+.error-message {
+    margin: 15px;
+    color: red;
+    font-style: italic;
+}
