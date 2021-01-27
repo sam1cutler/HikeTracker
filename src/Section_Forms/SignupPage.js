@@ -13,51 +13,60 @@ class SignupPage extends Component {
         event.preventDefault()
         //console.log('User wants to register new account.')
 
-        const { email, password } = event.target;
+        const { email, password, passwordRepeat } = event.target;
 
         //console.log(email)
         //console.log(password)
 
-        
-        AuthApiService.postUser({
-            email: email.value,
-            password: password.value
-        })
-            .then( () => {
-                //console.log('User POST request did something.');
-                //console.log('Attempting to log in after registration.')
-                AuthApiService.postLogin({
-                    email: email.value,
-                    password: password.value
+        // Check that messages match
+        if (password !== passwordRepeat) {
+            this.setState({
+                error: 'Passwords do not match.'
+            })
+        } else {
+            AuthApiService.postUser({
+                email: email.value,
+                password: password.value
+            })
+                .then( () => {
+                    //console.log('User POST request did something.');
+                    //console.log('Attempting to log in after registration.')
+                    AuthApiService.postLogin({
+                        email: email.value,
+                        password: password.value
+                    })
+                        .then(res => {
+                            TokenService.saveAuthToken(res.authToken)
+                            
+                            // clear form fields
+                            email.value = '';
+                            password.value = '';
+    
+                            // send to HikesLog home page
+                            const { history } = this.props
+                            history.push('/hikes')
+    
+                        })
+                        .catch(res => {
+                            console.log('There was an error in logging in after registration.')
+                            console.log(res.error)
+                            this.setState({
+                                error: res.error
+                            });
+                        })
                 })
-                    .then(res => {
-                        TokenService.saveAuthToken(res.authToken)
-                        
-                        // clear form fields
-                        email.value = '';
-                        password.value = '';
+                .catch(res => {
+                    // DISPLAY TO USER eventually...
+                    console.log('There was an error in creating the new user.')
+                    console.log(res.error)
+                    this.setState({
+                        error: res.error
+                    });
+                })
+        }
 
-                        // send to HikesLog home page
-                        const { history } = this.props
-                        history.push('/hikes')
-
-                    })
-                    .catch(res => {
-                        console.log('There was an error in logging in after registration.')
-                        console.log(res.error)
-                        this.setState({
-                            error: res.error
-                        });
-                    })
-            })
-            .catch(res => {
-                // DISPLAY TO USER eventually...
-                console.log('There was an error in creating the new user.')
-                console.log(res.error)
-                this.setState({
-                    error: res.error
-                });
-            })
+        
+        
             
     }
 
@@ -90,8 +99,12 @@ class SignupPage extends Component {
                             <label htmlFor='password'>Password:</label>{' '}
                             <input type="password" name='password' required />
                         </section>
+                        <section className='signup-form-section'>
+                            <label htmlFor='passwordRepeat'>Repeat password:</label>{' '}
+                            <input type="password" name='passwordRepeat' required />
+                        </section>
                         <section className='password-guidance'>
-                            <p>Your password must be at least 8 characters in length, and include at least one upper case and one lower case letter, at least one number, and at least one special character ( ! @ # $ % ^ & ).</p>
+                            <p>Your password must be at least 8 characters in length and include at least one upper case and one lower case letter, number, and special character ( ! @ # $ % ^ & ).</p>
                         </section>
                         <section className='signup-form-section'>
                             <button type='submit'>Sign up</button>

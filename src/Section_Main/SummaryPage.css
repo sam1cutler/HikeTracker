@@ -1,3 +1,11 @@
 .summary-wrapper {
     text-align: center;
 }
+
+.summary-wrapper h2, p {
+    margin: 20px;
+}
+
+.summary-wrapper p {
+    font-size: 20px;
+}

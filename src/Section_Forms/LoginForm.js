@@ -37,10 +37,8 @@ class LoginForm extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                console.log('There was an error.')
-                // TO-DO: implement error-reporting, including here.
-                // this.setState({ error: res.error })
-                console.log(res.error)
+                //console.log('There was an error.')
+                //console.log(res.error)
                 this.setState({
                     error: res.error
                 });

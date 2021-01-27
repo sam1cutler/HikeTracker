@@ -7,6 +7,16 @@ import HikesContext from '../HikesContext';
 
 class HikeCard extends Component {
 
+    state = {
+        icons: {
+            date: '🗓',
+            distance: '👣',
+            time: '⏱',
+            elevation: '🏔',
+            rating: '⭐️'
+        }
+    }
+
     static defaultProps = {
         cardInfo: {
             id: '',
@@ -21,23 +31,37 @@ class HikeCard extends Component {
 
     static contextType = HikesContext;
 
+    renderDataPiece = (key, value) => {
+        if (value) {
+            return (
+                <div className='card-element' key={key}>
+                    {value} {this.state.icons[key]}
+                </div>
+            )
+        }
+        
+    }
+
     render() {
 
         const { name, date, distance, time, elevation, rating } = this.props.cardInfo;
+        const cardInfo = { date, distance, time, elevation, rating }
         
         const interimDate = new Date(date)
-        const finalDate = format(interimDate, 'd MMM yyyy');
+        cardInfo['date'] = format(interimDate, 'd MMM yyyy');
+
+        let cardDataPieces = [];
+
+        for (const [key, value] of Object.entries(cardInfo)) {
+            cardDataPieces.push(this.renderDataPiece(key, value));
+        }
 
         return (
             <div className='hike-card'>
                 <div className='card-title'>
                     <h3>{name}</h3>
                 </div>
-                <div className='card-element'>{finalDate}</div>
-                <div className='card-element'>{distance} miles</div>
-                <div className='card-element'>{time} hours</div>
-                <div className='card-element'>{elevation} feet</div>
-                <div className='card-element'>{rating}/5 ⭐️</div>
+                {cardDataPieces}
             </div>
         )
 

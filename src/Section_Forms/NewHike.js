@@ -100,7 +100,7 @@ class NewHike extends Component {
                             <input type="number" name='elevation' placeholder={2000} />
                         </section>
                         <section className='hike-form-section'>
-                            <label htmlFor='rating'>Rating out of 5:</label>{' '}
+                            <label htmlFor='rating'>Rating out of 5 (how much did you enjoy the hike?):</label>{' '}
                             <input type="number" name='rating' placeholder={3} min={1} max={5}/>
                         </section>
                         <section className='hike-form-section'>

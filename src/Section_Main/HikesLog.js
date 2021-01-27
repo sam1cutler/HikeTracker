@@ -21,18 +21,16 @@ class HikesLog extends Component {
         this.context.clearActiveHike();
     }
 
-    // function to order the hikesList?
-
     orderHikesList(hikesList) {
-        console.log('Attempting to order the hikeslist!')
-        console.log(hikesList);
+        //console.log('Attempting to order the hikeslist!')
+        //console.log(hikesList);
 
         hikesList.sort(function(a, b) {
             const c = new Date(a.date);
             const d = new Date(b.date);
             return c-d;
         });
-        console.log(hikesList);
+        //console.log(hikesList);
     }
 
     renderWelcome() {
