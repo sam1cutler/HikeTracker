@@ -58,7 +58,7 @@ class NewHike extends Component {
     render() {
 
         return (
-            <div>
+            <div className='new-hike-form-wrapper'>
                 <form 
                     className='new-hike-entry'
                     onSubmit={this.handleNewHikeFormSubmission}
@@ -70,18 +70,16 @@ class NewHike extends Component {
                             <label htmlFor='name'>Hike name:</label>{' '}
                             <input type="text" name='name' placeholder='Mailbox Peak' required />
                         </section>
-                        <section className='hike-form-section'>
-                            <div className='date-picker-container'>
-                                <SingleDatePicker
-                                    date={this.state.date} // momentPropTypes.momentObj or null
-                                    onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
-                                    focused={this.state.focused} // PropTypes.bool
-                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-                                    id="new-hike-date-picker" // PropTypes.string.isRequired,
-                                    numberOfMonths={1}
-                                    isOutsideRange={() => {}}
-                                />
-                            </div>
+                        <section className='hike-form-section date-picker-container'>
+                            <SingleDatePicker
+                                date={this.state.date} // momentPropTypes.momentObj or null
+                                onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+                                focused={this.state.focused} // PropTypes.bool
+                                onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                id="new-hike-date-picker" // PropTypes.string.isRequired,
+                                numberOfMonths={1}
+                                isOutsideRange={() => {}}
+                            />
                         </section>
                     </section>
 
@@ -127,10 +125,10 @@ class NewHike extends Component {
                         </section>
                     </section>
 
-                    <section className='hike-form-section buttons-box'>
+                    <section className='hike-form-supersection buttons-box'>
                         <button type='submit'>Submit hike</button>
                         {' '}
-                        <button type='reset'>Reset form</button>
+                        {/* <button type='reset'>Reset form</button> */}
                         <Link to='/hikes'>
                             <div className='return-link'>
                                 <p>Return to Hikes Log</p>

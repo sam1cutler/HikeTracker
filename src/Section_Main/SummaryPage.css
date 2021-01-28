@@ -1,11 +1,17 @@
 .summary-wrapper {
     text-align: center;
+    margin: 60px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.summary-wrapper h2, p {
-    margin: 20px;
+.summary-wrapper h2 {
+    margin: 20px 0 40px 0;
 }
 
 .summary-wrapper p {
+    margin: 20px;
     font-size: 20px;
 }

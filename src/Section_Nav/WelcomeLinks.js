@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './WelcomeLinks.css';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
@@ -45,19 +45,19 @@ class WelcomeLinks extends Component {
                     </Link>
                 </div>
                 <div className='links-wrapper'>
-                    <Link 
+                    <NavLink 
                         to='/signup'
                         className='individual-link'
                     >
                         Sign Up
-                    </Link>
+                    </NavLink>
 
-                    <Link
+                    <NavLink
                         to='/login'
                         className='individual-link'
                     >
                         Log In
-                    </Link>
+                    </NavLink>
 
                     <p 
                         onClick={this.handleEnterDemoMode}

@@ -1,9 +1,29 @@
+.new-hike-form-wrapper {
+    margin: 20px 40px;
+    padding: 20px;
+}
+
+.new-hike-form-wrapper h2 {
+    margin: 0px 0px 20px 0px;
+}
+
 .hike-form-supersection {
     margin: 10px;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
     text-align: center;
     line-height: 2;
+}
+
+.hike-form-supersection h3 {
+    font-size: 24px;
+    margin: 10px 0px;
+}
+
+.date-picker-container {
+    margin: 10px;
 }
 
 .buttons-box {

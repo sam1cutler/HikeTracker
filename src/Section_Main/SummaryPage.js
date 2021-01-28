@@ -58,9 +58,9 @@ class SummaryPage extends Component {
             return (
                 <div className='summary-data-container'>
                     <p>You've logged a total of</p>
-                    <p><b>{summaryData.totalNumber}</b> hikes,</p>
-                    <p>👣 covering <b>{summaryData.totalDistance}</b> miles and <b>{summaryData.totalSteps}</b> steps, 👣</p>
-                    <p>⏱ taking <b>{summaryData.totalTime}</b> hours, ⏱</p>
+                    <p>🥾 <b>{summaryData.totalNumber}</b> hikes 🥾</p>
+                    <p>👣 covering <b>{summaryData.totalDistance}</b> miles and <b>{summaryData.totalSteps}</b> steps 👣</p>
+                    <p>⏱ taking <b>{summaryData.totalTime}</b> hours ⏱</p>
                     <p>🏔 and traversing <b>{summaryData.totalElevation}</b> feet of elevation! 🏔</p>
                 </div>
             )
