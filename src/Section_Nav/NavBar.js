@@ -35,7 +35,7 @@ class NavBar extends Component {
             <div className='nav-bar-wrapper'>
                 <div>
                     <Link to='/'>
-                        <h1>HikeTracker</h1>
+                        <h1>HikeTracker???</h1>
                     </Link>
                 </div>
                 {this.renderLinks()}

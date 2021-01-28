@@ -86,7 +86,7 @@ class SignupPage extends Component {
                     id='signup-form'
                     onSubmit={this.handleSignupSubmit}
                 >
-                    <div className='signup-form-wrapper'>
+                    <div className='signup-form-fields-container'>
                         <h2>Sign up for HikeTracker:</h2>
                         <div className='error-message'>
                             {errorMessage}

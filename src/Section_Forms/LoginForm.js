@@ -46,9 +46,13 @@ class LoginForm extends Component {
     }
 
     generateErrorMessage = () => {
-        return (this.state.error)
-            ? this.state.error
-            : null;
+        if (this.state.error) {
+            return (
+                <div className='error-message'>
+                    {this.state.error}
+                </div>
+            )
+        }
     }
 
     render() {
@@ -59,21 +63,21 @@ class LoginForm extends Component {
             <div className='login-form-wrapper'>
                 <form 
                     id='login-form'
-                    className='login-form-wrapper'
+                    className='login-form-fields-container'
                     onSubmit={this.handleSubmitJwtAuth}
                 >
                     <h2>Log In</h2>
-                    <div className='error-message'>
-                        {errorMessage}
+                    {errorMessage}
+                    <div className='inputs-container'>
+                        <section className='login-form-section'>
+                            <label htmlFor='email'>Email:</label>{' '}
+                            <input type="email" name='email' required />
+                        </section>
+                        <section className='login-form-section'>
+                            <label htmlFor='password'>Password:</label>{' '}
+                            <input type="password" name='password' required />
+                        </section>
                     </div>
-                    <section className='login-form-section'>
-                        <label htmlFor='email'>Email:</label>{' '}
-                        <input type="email" name='email' required />
-                    </section>
-                    <section className='login-form-section'>
-                        <label htmlFor='password'>Password:</label>{' '}
-                        <input type="password" name='password' required />
-                    </section>
                     <section className='login-form-section'>
                         <button type='submit'>Log In</button>
                     </section>

@@ -10,9 +10,9 @@ class HikeCard extends Component {
     state = {
         icons: {
             date: '🗓',
-            distance: '👣',
-            time: '⏱',
-            elevation: '🏔',
+            distance: 'mi 👣',
+            time: 'hr ⏱',
+            elevation: 'ft 🏔',
             rating: '⭐️'
         }
     }

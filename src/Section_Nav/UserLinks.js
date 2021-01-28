@@ -42,14 +42,6 @@ class UserLinks extends Component {
                     >
                         Summary
                     </Link>
-                    {/*
-                    <Link 
-                        to={`/hikes/analysis`}
-                        className='individual-link'
-                    >
-                        Analysis
-                    </Link>
-                    */}
                     <Link 
                         to={`/`}
                         className='individual-link'

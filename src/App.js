@@ -143,14 +143,16 @@ class App extends Component {
     return (
       <HikesContext.Provider value={value}>
         <div className='app-wrapper'>
-          <nav>
+          <nav className='main-section nav-bar'>
             {this.renderNavBarRoutes()}
           </nav>
           <main className='main-section'>
             {this.renderMainBodyRoutes()}
           </main>
           <footer className='main-section'>
-            Created by Sam Cutler
+            <div className='footer-content'>
+              Created by Sam Cutler
+            </div>
           </footer>
         </div>
       </HikesContext.Provider>

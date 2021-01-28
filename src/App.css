@@ -1,16 +1,29 @@
+/*-- Entire app --*/
+
 body {
   box-sizing: border-box;
+  background-image: url('images/yellowstone_landscape.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .app-wrapper {
   margin: 0px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-section {
   border: 1px solid black;
-  margin-top: 10px;
+  margin: 5px;
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 800px;
 }
 
 footer {
@@ -27,5 +40,54 @@ a:visited { color: black}
 a {
   margin: 0px;
 }
+
+h2 {
+  font-size: 30px;
+  margin: 0px;
+}
+
+input, textarea, option {
+  background-color: rgba(255, 255, 255, 0.6);;
+  border: 1px solid #473F2A;
+  border-radius: 4px;
+}
+
+/*-- Nav Bar --*/
+.nav-bar h1 {
+  font-size: 40px;
+  margin: 10px;
+}
+
+.nav-bar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px 3%;
+}
+
+.nav-bar-wrapper a:hover {
+  text-shadow: 0 0 5px grey;
+  box-shadow: none;
+}
+
+.links-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.individual-link {
+  margin: 0 15px 15px 0px;
+  font-size: 18px;
+}
+
+.demo-link:hover {
+  text-shadow: 0 0 5px grey;
+  cursor: pointer;
+}
+
+
+
+
 
 

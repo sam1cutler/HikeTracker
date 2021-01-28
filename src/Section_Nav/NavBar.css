@@ -5,6 +5,8 @@
     align-items: center;
     padding: 2%;
     border: 1px solid black;
+    background-color: #C7AF75;
+    color: red;
 }
 
 .nav-bar-wrapper a:hover {
