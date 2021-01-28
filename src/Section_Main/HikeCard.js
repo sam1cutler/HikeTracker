@@ -58,17 +58,30 @@ class HikeCard extends Component {
         cardInfo['date'] = format(interimDate, 'd MMM yyyy');
 
         // Generate card element pieces, depending on whether have value
-        let cardDataPieces = [];
+        let cardDataPieces = {};
         for (const [key, value] of Object.entries(cardInfo)) {
-            cardDataPieces.push(this.renderDataPiece(key, value));
+            cardDataPieces[key] = this.renderDataPiece(key, value);
         }
+
+        //console.log(cardDataPieces)
 
         return (
             <div className='hike-card'>
-                <div className='card-title'>
+                <div className='hike-card-sub-section card-title'>
                     <h3>{name}</h3>
                 </div>
-                {cardDataPieces}
+                <div className='hike-card-sub-section card-date-container'>
+                    {cardDataPieces.date}
+                </div>
+                <div className='hike-card-sub-section card-dist-time-container'>
+                    {cardDataPieces.distance}
+                    {cardDataPieces.time}
+                </div>
+                <div className='hike-card-sub-section card-elev-rate-container'>
+                    {cardDataPieces.elevation}
+                    {cardDataPieces.rating}
+                </div>
+
             </div>
         )
 
