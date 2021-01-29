@@ -79,7 +79,7 @@ class LoginForm extends Component {
                         </section>
                     </div>
                     <section className='login-form-section'>
-                        <button type='submit'>Log In</button>
+                        <button type='submit' className='hike-tracker-button'>Log In</button>
                     </section>
                 </form>
             </div>

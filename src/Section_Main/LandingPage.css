@@ -1,6 +1,17 @@
+.landing-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-page-wrapper h2 {
+    margin: 0px;
+    font-size: 20pt;
+}
+
 .landing-info-block {
-    margin: 20px 40px;
-    padding: 20px;
+    margin: 5px;
+    padding: 15px;
     border: 1px solid black;
     border-radius: 6px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -12,4 +23,32 @@ h2 {
 
 .screenshot-placeholder {
     text-align: center;
+}
+
+.links-block {
+    text-align: center;
+}
+
+.app-screenshot {
+    width: 100%;
+    border: 1px solid rgb(56, 56, 56);
+    margin: 5px;
+}
+
+/*--- Desktop adjustments ---*/
+
+@media all and (min-width: 800px) {
+    .landing-info-block {
+        padding: 20px 40px;
+        width: 70%
+    }
+
+    .landing-page-wrapper h2 {
+        font-size: 24pt;
+        margin: 10px;
+    }
+
+    .links-block {
+        width: 250px;
+    }
 }

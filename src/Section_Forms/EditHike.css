@@ -1,3 +1,13 @@
+.edit-hike-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-hike-entry h2 {
+    margin: 20px;
+}
+
 .hike-form-supersection {
     display: flex;
     flex-direction: column;
@@ -6,7 +16,19 @@
     padding: 10px;
     border: 1px solid black;
     text-align: center;
-    line-height: 2;
+}
+
+.hike-form-section label {
+    margin-right: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+.notes-input-section {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .buttons-box {
@@ -53,4 +75,45 @@
 .return-link:hover {
     text-shadow: 0 0 5px grey;
     box-shadow: none;
+}
+
+/*--- Medium-sized viewport adjustments ---*/
+
+@media all and (min-width: 450px) and (max-width: 799px) {
+
+    .form-inputs {
+        width: 80%
+    }
+
+    .buttons-box {
+        width: 200px;
+    }
+
+    textarea {
+        width: 20em;
+    }
+
+    .hike-reference-section input {
+        width: 20em;
+    }
+}
+
+/*--- Desktop adjustments ---*/
+
+@media all and (min-width: 800px) {
+    .form-inputs {
+        width: 60%
+    }
+
+    .hike-form-supersection h3 {
+        margin: 15px;
+    }
+
+    textarea {
+        width: 27em;
+    }
+
+    .hike-reference-section input {
+        width: 20em;
+    }
 }

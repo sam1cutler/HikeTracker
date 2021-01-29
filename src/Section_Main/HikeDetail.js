@@ -49,31 +49,42 @@ class HikeDetail extends Component {
 
         return (
             <div className='hike-detail-wrapper'>
+                <div className='detail-page-card-container'>
                 <HikeCard
                     cardInfo={activeHike}
                 />
-                <section className='hike-details-section'>
-                    <p>Weather: {weather}</p>
-                    <p>Notes: {notes}</p>
-                    <p>Reference: <a href={reference} target='_blank' rel="noreferrer">{reference}</a></p>
+                </div>
+                <section className='hike-details-section hike-details-content'>
+                    <p><b>Weather:</b> {weather}</p>
+                    <p><b>Notes:</b> {notes}</p>
+                    <p><b>Reference:</b> <a href={reference} target='_blank' rel="noreferrer">{reference}</a></p>
                 </section>
-                <section className='hike-detail-buttons'>
-                    <Link
-                        to={`/hikes/${this.props.match.params.hikeId}/edit`}
-                    >
-                        Edit
-                    </Link>
-                    <div
-                        className='delete-hike-button'
-                        onClick={this.handleDeleteHike}
-                    >
-                        Delete
+                <section className='hike-details-section hike-detail-options'>
+                    <div className='hike-detail-buttons'>
+                        <div className='hike-detail-ind-button'>
+                            <Link
+                                to={`/hikes/${this.props.match.params.hikeId}/edit`}
+                            >
+                                <div className='hike-tracker-button'>
+                                Edit
+                                </div>
+                            </Link>
+                            </div>
+                        <div className='hike-detail-ind-button'>
+                            <button 
+                                type='click'
+                                className='hike-tracker-button hike-detail-ind-button'
+                                onClick={this.handleDeleteHike}
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
-                </section>
-                <section className='return-link'>
-                    <Link to='/hikes'>
-                        <p>Return to Hikes Log</p>
-                    </Link>
+                    <div className='return-link'>
+                        <Link to='/hikes'>
+                            <p>Return to Hikes Log</p>
+                        </Link>
+                    </div>
                 </section>
             </div>
         )

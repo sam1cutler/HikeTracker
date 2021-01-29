@@ -11,26 +11,30 @@ class SignupPage extends Component {
     
     handleSignupSubmit = event => {
         event.preventDefault()
-        //console.log('User wants to register new account.')
+        
+        // clear error
+        this.setState({
+            error: null,
+        })
 
         const { email, password, passwordRepeat } = event.target;
 
-        //console.log(email)
-        //console.log(password)
-
         // Check that messages match
-        if (password !== passwordRepeat) {
+        if (password.value !== passwordRepeat.value) {
+            console.log('passwords do not match')
             this.setState({
                 error: 'Passwords do not match.'
             })
+            console.log(this.state.error)
+            email.value = '';
+            password.value = '';
+            passwordRepeat.value = '';
         } else {
             AuthApiService.postUser({
                 email: email.value,
                 password: password.value
             })
                 .then( () => {
-                    //console.log('User POST request did something.');
-                    //console.log('Attempting to log in after registration.')
                     AuthApiService.postLogin({
                         email: email.value,
                         password: password.value
@@ -63,17 +67,18 @@ class SignupPage extends Component {
                         error: res.error
                     });
                 })
-        }
-
-        
-        
-            
+        }    
     }
 
     generateErrorMessage = () => {
-        return (this.state.error)
-            ? this.state.error
-            : null;
+        console.log(this.state)
+        if (this.state.error) {
+            return (
+                <div className='error-message'>
+                    {this.state.error}
+                </div>
+            )
+        }
     }
 
     render() {
@@ -88,9 +93,7 @@ class SignupPage extends Component {
                 >
                     <div className='signup-form-fields-container'>
                         <h2>Sign up for HikeTracker:</h2>
-                        <div className='error-message'>
-                            {errorMessage}
-                        </div>
+                        {errorMessage}
                         <section className='signup-form-section'>
                             <label htmlFor='email'>Email:</label>{' '}
                             <input type="email" name='email' required />
@@ -107,7 +110,7 @@ class SignupPage extends Component {
                             <p>Your password must be at least 8 characters in length and include at least one upper case and one lower case letter, number, and special character ( ! @ # $ % ^ & ).</p>
                         </section>
                         <section className='signup-form-section'>
-                            <button type='submit'>Sign up</button>
+                            <button type='submit' className='hike-tracker-button'>Sign up</button>
                         </section>
                     </div>
                 </form>

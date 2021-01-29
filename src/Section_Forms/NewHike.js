@@ -64,13 +64,16 @@ class NewHike extends Component {
                     onSubmit={this.handleNewHikeFormSubmission}
                 >
                     <h2>Log a new hike</h2>
-                    <section className='hike-form-supersection'>
+                    <section className='hike-form-supersection required-inputs'>
                         <h3>Required info:</h3>
                         <section className='hike-form-section'>
                             <label htmlFor='name'>Hike name:</label>{' '}
                             <input type="text" name='name' placeholder='Mailbox Peak' required />
                         </section>
                         <section className='hike-form-section date-picker-container'>
+                            <label htmlFor='new-hike-date-picker'>Date: </label>
+                
+                                
                             <SingleDatePicker
                                 date={this.state.date} // momentPropTypes.momentObj or null
                                 onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
@@ -80,10 +83,11 @@ class NewHike extends Component {
                                 numberOfMonths={1}
                                 isOutsideRange={() => {}}
                             />
+
                         </section>
                     </section>
 
-                    <section className='hike-form-supersection'>
+                    <section className='hike-form-supersection optional-inputs'>
                         <h3>Optional info:</h3>
                         <section className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
@@ -116,17 +120,17 @@ class NewHike extends Component {
                         </section>
                         <section className='hike-form-section'>
                             <label htmlFor='notes'>Notes:</label>{' '}
-                            <textarea id='notes' name='notes' rows='4' cols='50'>
+                            <textarea id='notes' name='notes' rows='4'>
                             </textarea>
                         </section>
-                        <section className='hike-form-section'>
+                        <section className='hike-form-section hike-reference-section'>
                             <label htmlFor='reference'>Reference:</label>{' '}
-                            <input type='text' name='reference' size={50} placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
+                            <input type='text' name='reference' placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
                         </section>
                     </section>
 
                     <section className='hike-form-supersection buttons-box'>
-                        <button type='submit'>Submit hike</button>
+                        <button type='submit' className='hike-tracker-button'>Submit hike</button>
                         {' '}
                         {/* <button type='reset'>Reset form</button> */}
                         <Link to='/hikes'>

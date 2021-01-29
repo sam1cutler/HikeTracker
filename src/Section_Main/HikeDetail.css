@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+.detail-page-card-container {
+    width: 100%;
 }
 
 .hike-details-section {
@@ -12,7 +17,7 @@
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-.hike-details-section a:hover {
+.hike-details-content a:hover {
     box-shadow: none;
     text-shadow: 0 0 5px grey;
 }
@@ -20,15 +25,12 @@
 .hike-detail-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    text-align: center;
 }
 
-.hike-detail-buttons a, .delete-hike-button {
-    border: 1px solid black;
-    padding: 5px;
-    margin: 5px 10px;
-    border-radius: 5px;
-    width: 50px;
-    text-align: center;
+.hike-detail-ind-button {
+    flex: 1;
 }
 
 .hike-card-buttons a:hover { 
@@ -36,17 +38,33 @@
     box-shadow: 0 0 5px grey;
 }
 
-.delete-hike-button:hover {
-    box-shadow: 0 0 5px grey;
-    cursor: pointer;
-}
-
 .return-link p {
     margin: 10px;
     font-style: italic;
+    text-align: center;
 }
 
 .return-link a:hover {
     text-shadow: 0 0 5px grey;
     box-shadow: none;
+}
+
+/*--- Medium-sized viewport adjustments ---*/
+
+@media all and (min-width: 400px) {
+
+    .hike-detail-options {
+        width: 200px;
+    }
+}
+
+/*--- Desktop adjustments ---*/
+
+@media all and (min-width: 650px) {
+    .hike-detail-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
 }

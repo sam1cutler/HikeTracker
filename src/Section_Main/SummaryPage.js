@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SummaryPage.css';
 import HikesContext from '../HikesContext';
 import HikesApiService from '../services/hikes-api-service';
@@ -77,6 +78,11 @@ class SummaryPage extends Component {
             <div className='summary-wrapper'>
                 <h2>Hike Activity Summary</h2>
                 {summaryDataOutput}
+                <Link to='/hikes'>
+                    <div className='return-link summary-return-link'>
+                        <p>Return to Hikes Log</p>
+                    </div>
+                </Link>
             </div>
         )
 

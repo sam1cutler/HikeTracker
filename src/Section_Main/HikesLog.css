@@ -7,13 +7,25 @@ h2 {
     box-shadow: 0 0 5px grey;
 }
 
+.welcome-message h2 {
+    margin: 0;
+}
+
 .welcome-message p {
     text-align: center;
     font-size: 16pt;
-    margin: 10px;
+    margin: 20px 10px;
 }
 
 .welcome-message a:hover {
     box-shadow: none;
     text-shadow: 0 0 5px grey;
+}
+
+/*--- Desktop adjustments ---*/
+
+@media all and (min-width: 650px) {
+    .welcome-message {
+        margin: 60px 60px;
+    }
 }

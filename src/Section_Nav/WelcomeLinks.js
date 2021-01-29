@@ -6,6 +6,10 @@ import TokenService from '../services/token-service';
 
 class WelcomeLinks extends Component {
 
+    state = {
+        error: null,
+    }
+
     onLoginSuccess = () => {
         //console.log('Login succeeded.');
 
@@ -28,14 +32,26 @@ class WelcomeLinks extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                //console.log('There was an error.')
-                // TO-DO: implement error-reporting, including here.
-                // this.setState({ error: res.error })
+                this.setState({
+                    error: 'Encountered problem with demo.'
+                })
             })
         
     }
 
+    generateErrorMessage = () => {
+        if (this.state.error) {
+            return (
+                <div className='error-message'>
+                    {this.state.error}
+                </div>
+            )
+        }
+    }
+
     render() {
+
+        const errorMessage = this.generateErrorMessage();
 
         return (
             <div className='nav-bar-wrapper'>
@@ -44,6 +60,7 @@ class WelcomeLinks extends Component {
                         <h1>HikeTracker</h1>
                     </Link>
                 </div>
+                {errorMessage}
                 <div className='links-wrapper'>
                     <NavLink 
                         to='/signup'

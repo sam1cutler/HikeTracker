@@ -6,6 +6,7 @@ import HikesContext from './HikesContext';
 //import NavBar from './Section_Nav/NavBar';
 import WelcomeLinks from './Section_Nav/WelcomeLinks';
 import UserLinks from './Section_Nav/UserLinks';
+import Footer from './Footer';
 import LandingPage from './Section_Main/LandingPage';
 import SignupPage from './Section_Forms/SignupPage';
 import LoginForm from './Section_Forms/LoginForm';
@@ -127,6 +128,16 @@ class App extends Component {
     )
   }
 
+  renderFooter() {
+    return (
+      <Route
+        exact
+        path='/'
+        component={Footer}
+      />
+    )
+  }
+
   render() {
 
     const value = {
@@ -149,11 +160,7 @@ class App extends Component {
           <main className='main-section'>
             {this.renderMainBodyRoutes()}
           </main>
-          <footer className='main-section'>
-            <div className='footer-content'>
-              Created by Sam Cutler
-            </div>
-          </footer>
+          {this.renderFooter()}
         </div>
       </HikesContext.Provider>
     )
