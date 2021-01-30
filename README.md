@@ -3,20 +3,19 @@
 Use the Vercel-hosted app [here](https://hike-tracker.vercel.app/).
 
 ## General Description
-*Track your hikes!* At a minimum, create a concise record of the hikes you've done. If you're interested in a more data-rich experience, log additional info about your hikes to be able to see records of your hiking mileage, elevation change, time, pace, and more.
+*Track your hikes!* At a minimum, create a concise record of the hikes you've done. If you're interested in a more data-rich experience, log additional info about your hikes.
 
 ## Summary
 Compile a clean, concise record of your hikes - when you hiked what trails.
 ![hike log](./src/images/app_screenshot_hike-log.png "hike log")
 
-If you prefer a more data-rich history of your hikes, easily fill in additional information about your hikes, including:
+You also have the option to track additional information about your hikes, including:
 - Total mileage
 - Total elevation change
 - Time
 - Weather
 - Notes about the hike
 - Link to a reference with info about the hike
-- And more!
 ![hike detail page](./src/images/app_screenshot_hike-detail.png "hike detail page")
 
 Edit any information about any hikes, or delete the hike completely.
