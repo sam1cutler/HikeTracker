@@ -13,7 +13,6 @@ import HikeDetail from './Section_Main/HikeDetail';
 import NewHike from './Section_Forms/NewHike';
 import EditHike from './Section_Forms/EditHike';
 import SummaryPage from './Section_Main/SummaryPage';
-import AnalysisPage from './Section_Main/AnalysisPage';
 
 class App extends Component {
 
@@ -111,11 +110,6 @@ class App extends Component {
           exact
           path='/hikes/summary'
           component={SummaryPage}
-        />
-        <Route 
-          exact
-          path='/hikes/analysis'
-          component={AnalysisPage}
         />
       </>
     )
