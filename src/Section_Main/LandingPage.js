@@ -79,16 +79,9 @@ class LandingPage extends Component {
 
                 <section className='landing-info-block'>
                     <h2>View concise summaries of your activity</h2>
-                    <p>Easily access visual summaries of your hiking activity by year or month.</p>
+                    <p>Easily access a summary of your logged hiking activity.</p>
                     <img src={summaryScreenshot} alt='hike-summary-screenshot' className='app-screenshot'/>
                 </section>
-
-                {/* <section className='landing-info-block'>
-                    <h2>Analyze your hiking activity</h2>
-                    <p>The more information you put into your HikeTracker logged info, the richer the analysis you can do.</p>
-                    <p>Determine your average pace over time, the relationship between the elevation change of your hike and the pace you sustain, and more.</p>
-                    <p className='screenshot-placeholder'><i>[Screenshot of some kinda analysis]</i></p>
-                    </section> */}
 
                 <div className='landing-info-block links-block'>
                     <button
