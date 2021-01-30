@@ -7,7 +7,7 @@ Use the Vercel-hosted app [here](https://hike-tracker.vercel.app/).
 
 ## Summary
 Compile a clean, concise record of your hikes - when you hiked what trails.
-![hike log](./images/app_screenshot_hike-log.png "hike log")
+![hike log](./src/images/app_screenshot_hike-log.png "hike log")
 
 If you prefer a more data-rich history of your hikes, easily fill in additional information about your hikes, including:
 - Total mileage
@@ -17,13 +17,13 @@ If you prefer a more data-rich history of your hikes, easily fill in additional 
 - Notes about the hike
 - Link to a reference with info about the hike
 - And more!
-![hike detail page](./images/app_screenshot_hike-detail.png "hike detail page")
+![hike detail page](./src/images/app_screenshot_hike-detail.png "hike detail page")
 
 Edit any information about any hikes, or delete the hike completely.
-![hike edit page](./images/app_screenshot_hike-edit.png "hike edit page")
+![hike edit page](./src/images/app_screenshot_hike-edit.png "hike edit page")
 
 Easily access a summary of your logged hiking activity.
-![activity summary](./images/app_screenshot_hike-summary.png "activity summary")
+![activity summary](./src/images/app_screenshot_hike-summary.png "activity summary")
 
 ## Technology used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), with elements of Javascript, JSX, HTML, and CSS.
