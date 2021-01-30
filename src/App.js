@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import HikesContext from './HikesContext';
-//import HikesApiService from './services/hikes-api-service';
-//import NavBar from './Section_Nav/NavBar';
 import WelcomeLinks from './Section_Nav/WelcomeLinks';
 import UserLinks from './Section_Nav/UserLinks';
 import Footer from './Footer';
@@ -24,7 +22,6 @@ class App extends Component {
     activeHike: { date: '01-Jan-2020' },
     error: null,
   }
-
 
   /*-- functions for context --*/
   setHikesList = (hikesList) => {
@@ -49,10 +46,6 @@ class App extends Component {
         date: '01-Jan-2020'
       }
     })
-  }
-
-  handleDeleteHike = (hikeId) => {
-    //console.log('User wants to delete a specific hike.')
   }
 
   /*-- Render the two main clusters of Routes --*/
@@ -148,7 +141,6 @@ class App extends Component {
       clearHikes: this.clearHikesList,
       setActiveHike: this.setActiveHike,
       clearActiveHike: this.clearActiveHike,
-      deleteHike: this.handleDeleteHike,
     }
 
     return (

@@ -63,8 +63,6 @@ class HikeCard extends Component {
             cardDataPieces[key] = this.renderDataPiece(key, value);
         }
 
-        //console.log(cardDataPieces)
-
         return (
             <div className='hike-card'>
                 <div className='hike-card-sub-section card-title'>
@@ -81,12 +79,9 @@ class HikeCard extends Component {
                     {cardDataPieces.elevation}
                     {cardDataPieces.rating}
                 </div>
-
             </div>
         )
-
     }
-
 }
 
 export default HikeCard;

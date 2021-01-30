@@ -66,11 +66,11 @@ class NewHike extends Component {
                     <h2>Log a new hike</h2>
                     <section className='hike-form-supersection required-inputs'>
                         <h3>Required info:</h3>
-                        <section className='hike-form-section'>
+                        <div className='hike-form-section'>
                             <label htmlFor='name'>Hike name:</label>{' '}
-                            <input type="text" name='name' placeholder='Mailbox Peak' required />
-                        </section>
-                        <section className='hike-form-section date-picker-container'>
+                            <input type="text" name='name' id='name' placeholder='Mailbox Peak' required />
+                        </div>
+                        <div className='hike-form-section date-picker-container'>
                             <label htmlFor='new-hike-date-picker'>Date: </label>
                 
                                 
@@ -84,32 +84,32 @@ class NewHike extends Component {
                                 isOutsideRange={() => {}}
                             />
 
-                        </section>
+                        </div>
                     </section>
 
                     <section className='hike-form-supersection optional-inputs'>
                         <h3>Optional info:</h3>
-                        <section className='hike-form-section'>
+                        <div className='hike-form-section'>
                             <label htmlFor='distance'>Distance (miles):</label>{' '}
-                            <input type="number" name='distance' placeholder={10} step="any"/>
-                        </section>
-                        <section className='hike-form-section'>
+                            <input type="number" name='distance' id='distance' placeholder={10} step="any"/>
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='time'>Time (hours):</label>{' '}
-                            <input type="number" name='time' placeholder={4} step="any"/>
-                        </section>
-                        <section className='hike-form-section'>
+                            <input type="number" name='time' id='time' placeholder={4} step="any"/>
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='elevation'>Total elevation change (feet):</label>{' '}
-                            <input type="number" name='elevation' placeholder={2000} />
-                        </section>
-                        <section className='hike-form-section'>
+                            <input type="number" name='elevation' id='elevation' placeholder={2000} />
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='rating'>Rating out of 5 (how much did you enjoy the hike?):</label>{' '}
-                            <input type="number" name='rating' placeholder={3} min={1} max={5}/>
-                        </section>
-                        <section className='hike-form-section'>
+                            <input type="number" name='rating' id='rating' placeholder={3} min={1} max={5}/>
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='steps'>Total steps taken:</label>{' '}
-                            <input type="number" name='steps' placeholder={20000} />
-                        </section>
-                        <section className='hike-form-section'>
+                            <input type="number" name='steps' id='steps' placeholder={20000} />
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='weather'>Weather:</label>{' '}
                             <select name='weather' id='weather'>
                             <option value='Sun'>Sun</option>
@@ -117,19 +117,19 @@ class NewHike extends Component {
                             <option value='Rain'>Rain</option>
                             <option value='Snow'>Snow</option>
                             </select>
-                        </section>
-                        <section className='hike-form-section'>
+                        </div>
+                        <div className='hike-form-section'>
                             <label htmlFor='notes'>Notes:</label>{' '}
-                            <textarea id='notes' name='notes' rows='4'>
+                            <textarea name='notes' id='notes' rows='4'>
                             </textarea>
-                        </section>
-                        <section className='hike-form-section hike-reference-section'>
+                        </div>
+                        <div className='hike-form-section hike-reference-section'>
                             <label htmlFor='reference'>Reference:</label>{' '}
-                            <input type='text' name='reference' placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
-                        </section>
+                            <input type='text' name='reference' id='reference' placeholder='https://www.wta.org/go-hiking/hikes/mailbox-peak' />
+                        </div>
                     </section>
 
-                    <section className='hike-form-supersection buttons-box'>
+                    <div className='hike-form-supersection buttons-box'>
                         <button type='submit' className='hike-tracker-button'>Submit hike</button>
                         {' '}
                         {/* <button type='reset'>Reset form</button> */}
@@ -138,7 +138,7 @@ class NewHike extends Component {
                                 <p>Return to Hikes Log</p>
                             </div>
                         </Link>
-                    </section>
+                    </div>
                 </form>
             </div>
         )

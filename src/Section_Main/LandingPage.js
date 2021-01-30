@@ -90,9 +90,9 @@ class LandingPage extends Component {
                     <p className='screenshot-placeholder'><i>[Screenshot of some kinda analysis]</i></p>
                     </section> */}
 
-                <section className='landing-info-block links-block'>
+                <div className='landing-info-block links-block'>
                     <button
-                        type='click'
+                        type='button'
                         onClick={this.handleEnterDemoMode}
                         className='hike-tracker-button'
                     >
@@ -106,7 +106,7 @@ class LandingPage extends Component {
                             Sign up for your own account and get started!
                         </Link>
                     </div>
-                </section>
+                </div>
             </div>
         )
 

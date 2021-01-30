@@ -21,11 +21,9 @@ class SignupPage extends Component {
 
         // Check that messages match
         if (password.value !== passwordRepeat.value) {
-            console.log('passwords do not match')
             this.setState({
                 error: 'Passwords do not match.'
             })
-            console.log(this.state.error)
             email.value = '';
             password.value = '';
             passwordRepeat.value = '';
@@ -52,17 +50,12 @@ class SignupPage extends Component {
     
                         })
                         .catch(res => {
-                            console.log('There was an error in logging in after registration.')
-                            console.log(res.error)
                             this.setState({
                                 error: res.error
                             });
                         })
                 })
                 .catch(res => {
-                    // DISPLAY TO USER eventually...
-                    console.log('There was an error in creating the new user.')
-                    console.log(res.error)
                     this.setState({
                         error: res.error
                     });
@@ -71,7 +64,6 @@ class SignupPage extends Component {
     }
 
     generateErrorMessage = () => {
-        console.log(this.state)
         if (this.state.error) {
             return (
                 <div className='error-message'>
@@ -94,24 +86,24 @@ class SignupPage extends Component {
                     <div className='signup-form-fields-container'>
                         <h2>Sign up for HikeTracker:</h2>
                         {errorMessage}
-                        <section className='signup-form-section'>
+                        <div className='signup-form-section'>
                             <label htmlFor='email'>Email:</label>{' '}
-                            <input type="email" name='email' required />
-                        </section>
-                        <section className='signup-form-section'>
+                            <input type="email" id='email' name='email' required />
+                        </div>
+                        <div className='signup-form-section'>
                             <label htmlFor='password'>Password:</label>{' '}
-                            <input type="password" name='password' required />
-                        </section>
-                        <section className='signup-form-section'>
+                            <input type="password" id='password' name='password' required />
+                        </div>
+                        <div className='signup-form-section'>
                             <label htmlFor='passwordRepeat'>Repeat password:</label>{' '}
-                            <input type="password" name='passwordRepeat' required />
-                        </section>
-                        <section className='password-guidance'>
+                            <input type="password" id='passwordRepeat' name='passwordRepeat' required />
+                        </div>
+                        <div className='password-guidance'>
                             <p>Your password must be at least 8 characters in length and include at least one upper case and one lower case letter, number, and special character ( ! @ # $ % ^ & ).</p>
-                        </section>
-                        <section className='signup-form-section'>
+                        </div>
+                        <div className='signup-form-section'>
                             <button type='submit' className='hike-tracker-button'>Sign up</button>
-                        </section>
+                        </div>
                     </div>
                 </form>
             </div>

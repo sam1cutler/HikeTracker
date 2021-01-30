@@ -10,16 +10,13 @@ class LoginForm extends Component {
     }
 
     onLoginSuccess = () => {
-        //console.log('Login succeeded.');
-
         const { history } = this.props
         history.push(`/hikes`)
     }
 
     handleSubmitJwtAuth = event => {
         event.preventDefault();
-        //console.log('User has submitted the login form.');
-
+        
         const { email, password } = event.target;
 
         AuthApiService.postLogin({
@@ -37,8 +34,6 @@ class LoginForm extends Component {
                 this.onLoginSuccess()
             })
             .catch(res => {
-                //console.log('There was an error.')
-                //console.log(res.error)
                 this.setState({
                     error: res.error
                 });
@@ -69,18 +64,18 @@ class LoginForm extends Component {
                     <h2>Log In</h2>
                     {errorMessage}
                     <div className='inputs-container'>
-                        <section className='login-form-section'>
+                        <div className='login-form-section'>
                             <label htmlFor='email'>Email:</label>{' '}
-                            <input type="email" name='email' required />
-                        </section>
-                        <section className='login-form-section'>
+                            <input type="email" id='email' name='email' required />
+                        </div>
+                        <div className='login-form-section'>
                             <label htmlFor='password'>Password:</label>{' '}
-                            <input type="password" name='password' required />
-                        </section>
+                            <input type="password" id='password' name='password' required />
+                        </div>
                     </div>
-                    <section className='login-form-section'>
+                    <div className='login-form-section'>
                         <button type='submit' className='hike-tracker-button'>Log In</button>
-                    </section>
+                    </div>
                 </form>
             </div>
         )

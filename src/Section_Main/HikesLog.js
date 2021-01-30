@@ -12,25 +12,19 @@ class HikesLog extends Component {
     componentDidMount() {
         HikesApiService.getHikes()
             .then( hikesResult => {
-                //console.log(hikesResult)
                 this.context.setHikes(
                     hikesResult
                 )
             });
-        
         this.context.clearActiveHike();
     }
 
     orderHikesList(hikesList) {
-        //console.log('Attempting to order the hikeslist!')
-        //console.log(hikesList);
-
         hikesList.sort(function(a, b) {
             const c = new Date(a.date);
             const d = new Date(b.date);
             return d-c;
         });
-        //console.log(hikesList);
     }
 
     renderWelcome() {
