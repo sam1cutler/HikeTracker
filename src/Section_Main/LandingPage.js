@@ -65,7 +65,7 @@ class LandingPage extends Component {
                 <section className='landing-info-block'>
                     <h2>Record additional hike data</h2>
                     <p>If you prefer a more data-rich history of your hikes, easily fill in additional information about your hikes, including:</p>
-                    <ul>
+                    <ul className='data-options-list'>
                         <li>Total mileage</li>
                         <li>Total elevation change</li>
                         <li>Time</li>
