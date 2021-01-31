@@ -11,7 +11,6 @@ class SummaryPage extends Component {
     componentDidMount() {
         HikesApiService.getHikes()
             .then( hikesResult => {
-                //console.log(hikesResult)
                 this.context.setHikes(
                     hikesResult
                 )
@@ -21,8 +20,6 @@ class SummaryPage extends Component {
     }
 
     generateSummaryData = hikes => {
-        //console.log('About to generate summary data.');
-        //console.log(hikes)
         // Initialize desired values
         const totalNumber = hikes.length;
         let totalDistance = 0;
@@ -32,8 +29,6 @@ class SummaryPage extends Component {
 
         for (let i=0; i<hikes.length; i++) {
             const activeHike = hikes[i]
-            //console.log(activeHike)
-            //console.log(hikes[i])
             totalDistance += activeHike.distance;
             totalElevation += activeHike.elevation;
             totalTime += activeHike.time;
@@ -50,7 +45,6 @@ class SummaryPage extends Component {
     }
 
     renderSummaryData = summaryData => {
-        //console.log('Attempting to render it all nicely.')
         if (summaryData.totalNumber < 2) {
             return (
                 <p>Log more hikes to get a summary of your total hiking activity!</p>

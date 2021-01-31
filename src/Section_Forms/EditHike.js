@@ -55,7 +55,6 @@ class EditHike extends Component {
     componentDidMount() {
         HikesApiService.getHikeById(this.props.match.params.hikeId)
             .then( hikeInfo => {
-                //console.log(hikeInfo)
                 this.context.setActiveHike(hikeInfo)
                 this.setState({
                     date: moment(hikeInfo.date)

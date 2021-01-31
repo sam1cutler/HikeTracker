@@ -11,14 +11,11 @@ class WelcomeLinks extends Component {
     }
 
     onLoginSuccess = () => {
-        //console.log('Login succeeded.');
-
         const { history } = this.props
         history.push(`/hikes`)
     }
     
     handleEnterDemoMode = () => {
-        //console.log('User would like to demo the app.')
 
         AuthApiService.postLogin({
             email: 'sampleUser@sampleUser.com',

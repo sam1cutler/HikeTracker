@@ -8,8 +8,6 @@ const HikesContext = React.createContext({
     clearHikes: () => {},
     setActiveHike: () => {},
     clearActiveHike: () => {},
-    //editHike: () => {},
-    //addHike: () => {},
     deleteHike: () => {},
 })
 

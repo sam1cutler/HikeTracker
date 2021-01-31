@@ -16,7 +16,6 @@ class NewHike extends Component {
 
     handleNewHikeFormSubmission = event => {
         event.preventDefault();
-        //console.log('New hike form submitted.')
 
         const { name, distance, time, elevation, steps, rating, weather, notes, reference } = event.target;
         const newHikeInfo = {
@@ -31,28 +30,19 @@ class NewHike extends Component {
             notes: notes.value,
             reference: reference.value,
         };
-        
-        //console.log(newHikeInfo);
 
         // replace any un-filled, optional fields with 'null' for DB submission
         for (const [key, value] of Object.entries(newHikeInfo)) {
-            //console.log(key);
-            //console.log(value);
             if (value === '') {
                 newHikeInfo[key] = null;
             }
         }
-
-        //console.log(newHikeInfo);
         
         HikesApiService.logNewHike(newHikeInfo)
             .then( () => {
-                //console.log('New hike was submitted.')
                 const { history } = this.props
                 history.push('/hikes')
             })
-
-        
     }
 
     render() {

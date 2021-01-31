@@ -14,7 +14,6 @@ class UserLinks extends Component {
     }
 
     render() {
-        //console.log('Inside UserLinks.js render; here is current context:')
 
         return (
             <div className='nav-bar-wrapper'>

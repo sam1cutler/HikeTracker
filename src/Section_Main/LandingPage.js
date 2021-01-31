@@ -19,7 +19,6 @@ class LandingPage extends Component {
     }
     
     handleEnterDemoMode = () => {
-        //console.log('User would like to demo the app.')
 
         AuthApiService.postLogin({
             email: 'sampleUser@sampleUser.com',
