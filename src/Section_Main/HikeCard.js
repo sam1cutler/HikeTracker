@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { BiCalendar } from 'react-icons/bi';
+import { GiFootprint } from 'react-icons/gi';
+import { IoMdStopwatch } from 'react-icons/io';
+import { FaMountain } from 'react-icons/fa';
+import { AiFillStar } from 'react-icons/ai';
 //import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import './HikeCard.css';
@@ -8,12 +13,19 @@ import HikesContext from '../HikesContext';
 class HikeCard extends Component {
 
     state = {
+        units: {
+            date: '',
+            distance: ` mi`,
+            time: ' hr',
+            elevation: ' ft',
+            rating: ''
+        },
         icons: {
-            date: '🗓',
-            distance: 'mi 👣',
-            time: 'hr ⏱',
-            elevation: 'ft 🏔',
-            rating: '⭐️'
+            date: <BiCalendar />,
+            distance: <GiFootprint />,
+            time: <IoMdStopwatch />,
+            elevation: <FaMountain />,
+            rating: <AiFillStar />
         }
     }
 
@@ -35,13 +47,18 @@ class HikeCard extends Component {
         if (value) {
             return (
                 <div className={`card-element card-${key}`} key={key}>
-                    {value} {this.state.icons[key]}
+                    {value}
+                    <span className={`card-element-unit card-${key}-unit`}>{this.state.units[key]}</span>
+                    <span className='card-element-icon'>{this.state.icons[key]}</span>
+                    {/* {value}{this.state.icons[key]} */}
                 </div>
             )
         } else {
             return (
                 <div className={`card-element card-${key}`} key={key}>
-                    -- {this.state.icons[key]}
+                    --
+                    <span className='card-element-unit'>{this.state.units[key]}</span>
+                    <span className='card-element-icon'>{this.state.icons[key]}</span>
                 </div>
             )
         }

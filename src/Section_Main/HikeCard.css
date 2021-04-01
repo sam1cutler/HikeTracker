@@ -27,6 +27,10 @@
 }
 
 .card-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
     height: 18pt;
     line-height: 18pt;
     margin: 3px;
@@ -35,6 +39,16 @@
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.6);
 }
+
+.card-element-unit {
+    margin: 0 5px; 
+}
+
+.card-element-icon {
+    /* margin-left: 5px; */
+    padding: 4px 0 0 0;
+}
+
 
 /*--- individual element flex ratios ---*/
 .card-date {
